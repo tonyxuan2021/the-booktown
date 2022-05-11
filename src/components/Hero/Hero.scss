@@ -1,0 +1,23 @@
+.hero__quote {
+    &__text {
+        display: inline;
+        padding: 0 1.5rem;
+    }
+
+    &__author {
+        font-style: italic;
+    }
+
+    &__wrapper {
+        margin-bottom: 2rem;
+        padding: 0 2rem;
+    }
+}
+
+.hero__img {
+    
+    width: 100%;
+    object-fit: cover;
+    height: 20vh;
+}
+

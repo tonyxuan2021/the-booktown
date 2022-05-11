@@ -7,7 +7,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   return (
-    <div>
+    <div className="header__wrapper">
       <div className="header--top">
         <img src={logo}></img>
         <div className="header--right">
