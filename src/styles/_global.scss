@@ -1,0 +1,35 @@
+@use "./mixins" as *;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-size: 1.6rem;
+    margin: 0 auto;
+    // font-family: 'AvenirNext LT Pro', sans-serif;
+    max-width: 767px;
+    // width: 320px;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    font-weight: 400;
+
+    @include tablet {
+      // width: 768px;
+      max-width: 1279px;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+
+    @include desktop {
+      // width: 1280px;
+      max-width: 1920px;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+  }
