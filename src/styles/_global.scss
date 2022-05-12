@@ -24,14 +24,14 @@
     @include tablet {
       // width: 768px;
       max-width: 1279px;
-      font-size: 1.4rem;
+      font-size: 2.4rem;
       line-height: 2.2rem;
     }
 
     @include desktop {
       // width: 1280px;
       max-width: 1920px;
-      font-size: 1.4rem;
+      font-size: 2.4rem;
       line-height: 2.2rem;
     }
   }
