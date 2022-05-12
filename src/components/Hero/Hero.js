@@ -7,7 +7,7 @@ import { faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 
 const Hero = () => {
   return (
-    <div>
+    <div className="hero__main__wrapper">
       <div className="hero__quote__wrapper">
         <FontAwesomeIcon icon={faQuoteLeft} className="hero__quote--left" />
         <blockquote className="hero__quote__text">

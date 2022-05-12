@@ -2,10 +2,19 @@
     &__text {
         display: inline;
         padding: 0 1.5rem;
+        font-size: 1.6rem;
     }
 
     &__author {
         font-style: italic;
+    }
+
+    &--left {
+        font-size: 2rem;
+    }
+
+    &--right {
+        font-size: 2rem;
     }
 
     &__wrapper {
@@ -14,10 +23,14 @@
     }
 }
 
+.hero__main__wrapper {
+    margin-bottom: 2rem;
+}
+
 .hero__img {
     
     width: 100%;
     object-fit: cover;
-    height: 20vh;
+    height: 25vh;
 }
 

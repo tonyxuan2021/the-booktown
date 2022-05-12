@@ -16,7 +16,10 @@ const Header = () => {
         </div>
       </div>
       <div className="search__wrapper">
-        <input className="search__input"></input>
+        <input
+          className="search__input"
+          placeholder="Search over millions of books..."
+        ></input>
         <FontAwesomeIcon icon={faSearch} className="search__icon" />
       </div>
     </div>
