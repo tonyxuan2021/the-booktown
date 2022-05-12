@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-const Card = () => {
+const Card = ({ data }) => {
+  let dataArr = data.book_details[0];
+  console.log(data);
   return (
     <div className="card__main__wrapper">
       <h3 className="card__title">Best Sellers</h3>
@@ -16,9 +18,9 @@ const Card = () => {
             src="https://via.placeholder.com/90x120"
             className="card__img"
           ></img>
-          <p>This is a book name</p>
-          <p>This is an author name</p>
-          <p>This is price</p>
+          <p>{dataArr.title}</p>
+          <p>{dataArr.author}</p>
+          <p>{dataArr.price}</p>
           <Button />
         </div>
         <FontAwesomeIcon

@@ -13,7 +13,7 @@ const Hero = () => {
         <blockquote className="hero__quote__text">
           The more that you read, the more things you will know. The more that
           you learn, the more places you’ll go. --{" "}
-          <site className="hero__quote__author">Dr. Seuss</site>
+          <div className="hero__quote__author">Dr. Seuss</div>
         </blockquote>
         <FontAwesomeIcon icon={faQuoteRight} className="hero__quote--right" />
       </div>
