@@ -12,7 +12,10 @@ const Card = () => {
       <div className="card__flex">
         <FontAwesomeIcon icon={faChevronLeft} className="card__chevron--left" />
         <div className="card__wrapper">
-          <img src="https://via.placeholder.com/90x120"></img>
+          <img
+            src="https://via.placeholder.com/90x120"
+            className="card__img"
+          ></img>
           <p>This is a book name</p>
           <p>This is an author name</p>
           <p>This is price</p>

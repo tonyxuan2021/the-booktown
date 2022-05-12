@@ -1,9 +1,15 @@
+@use "../../styles/mixins" as *;
+
 .hero__quote {
     &__text {
         display: inline;
         padding: 0 1.5rem;
         font-size: 1.6rem;
         line-height: 1.6;
+
+        @include tablet {
+            font-size: 2.4rem;
+        }
     }
 
     &__author {
@@ -21,11 +27,21 @@
     &__wrapper {
         margin-bottom: 2rem;
         padding: 0 2rem;
+
+        @include tablet {
+            width: 35%;
+        }
     }
 }
 
 .hero__main__wrapper {
     margin-bottom: 2rem;
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        padding: 1.8rem 3.2rem;
+    }
 }
 
 .hero__img {
@@ -33,5 +49,15 @@
     width: 100%;
     object-fit: cover;
     height: 25vh;
+
+    @include tablet {
+        height: 40vh;
+    }
+
+    &__wrapper {
+        @include tablet {
+            width: 70%;
+        }
+    }
 }
 
