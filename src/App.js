@@ -1,23 +1,17 @@
-import "./App.scss";
-import React, { Component } from "react";
-import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
-import Category from "./components/Category/Category";
-import Card from "./components/Card/Card";
-import Footer from "./components/Footer/Footer";
+import HomePage from "./pages/HomePage";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Hero />
-        <Category />
-        <Card />
-        <Footer />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="app">
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          {/* <Route path="/recipe/:recipeId" component={SingleRecipePage}/> */}
+        </Switch>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
