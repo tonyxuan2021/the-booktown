@@ -1,0 +1,16 @@
+
+
+.footer {
+    &__social__wrapper {
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    &__copyright {
+        text-align: center;
+    }
+}

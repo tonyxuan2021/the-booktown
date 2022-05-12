@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="header__wrapper">
       <div className="header--top">
-        <img src={logo}></img>
+        <img src={logo} className="header__img"></img>
         <div className="header--right">
           <p>Login</p>
           <FontAwesomeIcon icon={faCartShopping} />

@@ -8,7 +8,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 const Card = () => {
   return (
     <div className="card__main__wrapper">
-      <p className="card__title">Best Sellers</p>
+      <h3 className="card__title">Best Sellers</h3>
       <div className="card__flex">
         <FontAwesomeIcon icon={faChevronLeft} className="card__chevron--left" />
         <div className="card__wrapper">
