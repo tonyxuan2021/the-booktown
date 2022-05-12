@@ -1,4 +1,4 @@
-
+@use "../../styles/mixins" as *;
 
 .footer {
     &__social__wrapper {
@@ -8,6 +8,14 @@
         align-items: center;
         font-size: 2rem;
         margin-bottom: 2rem;
+
+        @include tablet {
+            font-size: 2.4rem;
+        }
+
+        @include desktop {
+            font-size: 3.2rem;
+        }
     }
 
     &__copyright {

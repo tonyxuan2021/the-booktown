@@ -10,6 +10,10 @@
         @include tablet {
             font-size: 2.4rem;
         }
+
+        @include desktop {
+            font-size: 3.6rem;
+        }
     }
 
     &__author {
@@ -18,10 +22,17 @@
 
     &--left {
         font-size: 2rem;
+
+        @include desktop {
+            font-size: 3.6rem;
+        }
     }
 
     &--right {
         font-size: 2rem;
+        @include desktop {
+            font-size: 3.6rem;
+        }
     }
 
     &__wrapper {
@@ -30,6 +41,10 @@
 
         @include tablet {
             width: 35%;
+        }
+
+        @include desktop {
+            width: 40%;
         }
     }
 }
@@ -42,6 +57,10 @@
         align-items: center;
         padding: 1.8rem 3.2rem;
     }
+
+    @include desktop {
+        padding: 2.4rem 8.8rem;
+    }
 }
 
 .hero__img {
@@ -52,6 +71,10 @@
 
     @include tablet {
         height: 40vh;
+    }
+
+    @include desktop {
+        height: 50vh;
     }
 
     &__wrapper {
