@@ -1,0 +1,36 @@
+
+.card {
+
+    &__main__wrapper {
+        padding: 0 2rem;
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+    &__flex {
+        display: flex;
+        align-items: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    &__chevron {
+        &--left {
+            font-size: 2rem;
+        }
+
+        &--right {
+            font-size: 2rem;
+        }
+    }
+}
