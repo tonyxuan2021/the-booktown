@@ -4,7 +4,7 @@ import "./Button.scss";
 const Button = () => {
   return (
     <div>
-      <button className="btn">Button</button>
+      <button className="btn">ADD TO CART</button>
     </div>
   );
 };
