@@ -9,7 +9,6 @@ import axios from "axios";
 import "../components/Card/Card.scss";
 import uniqid from "uniqid";
 
-
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 
 class HomePage extends Component {
@@ -49,17 +48,17 @@ class HomePage extends Component {
         <Hero />
         <Category />
         <h3 className="card__title">Best Sellers</h3>
-        {this.state.bookData.map((bookData) => (
-          <div className="card__main__wrapper" key={uniqid()}>
-            <div className="card__flex">
-              <Card
-                // dataInitObj={this.state.selectedBook}
-                dataObj={bookData.book_details[0]}
-                isbn={bookData.isbns[0].isbn13}
-              />
+        <div className="card__each__wrapper">
+          {this.state.bookData.map((bookData) => (
+            <div className="card__main__wrapper" key={uniqid()}>
+                <Card
+                  // dataInitObj={this.state.selectedBook}
+                  dataObj={bookData.book_details[0]}
+                  isbn={bookData.isbns[0].isbn13}
+                />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <Footer />
       </div>
     );
