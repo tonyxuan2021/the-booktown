@@ -1,11 +1,14 @@
 import "../App.scss";
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 import Category from "../components/Category/Category";
 import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
 import axios from "axios";
+import "../components/Card/Card.scss";
+import uniqid from "uniqid";
+
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 
@@ -13,6 +16,8 @@ class HomePage extends Component {
   state = {
     bookData: [],
     selectedBook: null,
+    bookImg: {},
+    results: [],
   };
 
   componentDidMount() {
@@ -21,16 +26,16 @@ class HomePage extends Component {
         `https://api.nytimes.com/svc/books/v3/lists.json?api-key=${API_KEY_NYT}&list=Hardcover Fiction`
       )
       .then((data) => {
-        // console.log(data);
+        // console.log("book", data);
         this.setState({
-          bookData: data.data.results[0],
+          bookData: data.data.results,
+          selectedBook: data.data.results[0],
         });
       });
   }
 
   render() {
-    console.log(this.state.bookData);
-    if (this.state.bookData.length === 0) {
+    if (this.state.bookData.length === 0 || !this.state.bookImg) {
       return (
         <section>
           <p>... Loading your bookData ...</p>
@@ -43,7 +48,18 @@ class HomePage extends Component {
         <Header />
         <Hero />
         <Category />
-        <Card data={this.state.bookData} />
+        <h3 className="card__title">Best Sellers</h3>
+        {this.state.bookData.map((bookData) => (
+          <div className="card__main__wrapper" key={uniqid()}>
+            <div className="card__flex">
+              <Card
+                // dataInitObj={this.state.selectedBook}
+                dataObj={bookData.book_details[0]}
+                isbn={bookData.isbns[0].isbn13}
+              />
+            </div>
+          </div>
+        ))}
         <Footer />
       </div>
     );
