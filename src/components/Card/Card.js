@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "./Card.scss";
 import axios from "axios";
+import Rating from "../Rating/Rating";
+
 const Card = ({ dataObj, isbn }) => {
   const [imgUrl, setImgUrl] = useState("");
   const [data2, setData2] = useState("");
-
-  // console.log(isbn);
 
   useEffect(() => {
     axios
@@ -35,13 +35,14 @@ const Card = ({ dataObj, isbn }) => {
       <img src={imgUrl} className="card__img"></img>
       <p className="card__name">{dataObj.title}</p>
       <p className="card__author">{dataObj.author}</p>
-      <p>
-        {dataObj.price === "0.00" ? (dataObj.price = "20.00") : dataObj.price}
-        <div className="card__review__wrapper">
-          <p>{ratingScore === undefined ? (ratingScore = 3) : ratingScore}</p>
-          <p>{ratingCount === undefined ? (ratingCount = 0+ " reviews") : ratingCount + " reviews"}</p>
-        </div>
-      </p>
+
+      {dataObj.price === "0.00" ? (dataObj.price = "20.00") : dataObj.price}
+      <div className="card__review__wrapper">
+        {/* <p>{ratingScore === undefined ? (ratingScore = 3) : ratingScore}</p> */}
+
+        <Rating value={ratingScore} text={ratingCount} />
+      </div>
+
       <Button />
     </div>
   );

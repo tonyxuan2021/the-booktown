@@ -36,7 +36,6 @@
     }
 
     &__wrapper {
-        margin-bottom: 2rem;
         padding: 0 2rem;
 
         @include tablet {
@@ -78,6 +77,8 @@
     }
 
     &__wrapper {
+
+    margin-top: 20px;    
         @include tablet {
             width: 70%;
         }
