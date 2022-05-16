@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "./Card.scss";
 import axios from "axios";
 import Rating from "../Rating/Rating";
+// import CartContext from "../../context/cart/CartContext";
 
 const Card = ({ dataObj, isbn }) => {
   const [imgUrl, setImgUrl] = useState("");
   const [data2, setData2] = useState("");
+  const [cart, setCart] = useState([]);
+
+  // const {addToCart} = useContext(CartContext)
 
   useEffect(() => {
     axios
@@ -28,7 +32,10 @@ const Card = ({ dataObj, isbn }) => {
   let ratingScore = data2.data.items[0].volumeInfo.averageRating;
   let ratingCount = data2.data.items[0].volumeInfo.ratingsCount;
 
-  // console.log(data2.data.items[0].volumeInfo.ratingsCount);
+  const addToCart = (book) => {
+    console.log("we are in addTocart");
+    setCart([...cart, book])
+  }  
 
   return (
     <div className="card__wrapper">
@@ -43,7 +50,9 @@ const Card = ({ dataObj, isbn }) => {
         <Rating value={ratingScore} text={ratingCount} />
       </div>
 
-      <Button />
+      <Button onClick={()=> {
+        addToCart(data2)
+      }}/>
     </div>
   );
 };

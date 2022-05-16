@@ -3,7 +3,7 @@ import "./Rating.scss";
 
 const Rating = ({ value, text, color }) => {
 
-    console.log(text)
+    // console.log(text)
 
   return (
     <div className="rating">
