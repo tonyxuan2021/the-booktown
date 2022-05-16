@@ -3,6 +3,14 @@
 .checkout {
     &__title {
         padding: 1rem 2rem;
+
+        @include tablet {
+            margin-bottom: 3rem;
+        }
+
+        @include desktop {
+            padding: 1rem 8.8rem;
+        }
     }
 
     &__img {
@@ -13,12 +21,12 @@
 
     &__wrapper {
         padding: 1rem 2rem;
-        margin-top: 5rem;
+        // margin-top: 5rem;
         display: flex;
         flex-direction: column;
 
         @include tablet {
-            padding: 5rem 3rem;
+            padding: 0 3rem;
         }
     }
 
@@ -29,6 +37,10 @@
             margin: 0;
             padding: 3rem 0;
             border-bottom: 1px solid grey;
+
+            &:last-child {
+                margin-bottom: 5rem;
+            }
 
             @include tablet {
                 justify-content: space-around;
@@ -64,7 +76,71 @@
             width: 50%;
         }
     }
-    
 
+    &__page__wrapper {
+        @include tablet {
+            display: flex;
+            // align-items: center;
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            justify-content: space-around;
+        }
+    }
+    
+}
+
+.order {
+    &__title {
+        margin-bottom: 2rem;
+    }
+
+    &__summary {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 2rem;
+
+        @include tablet {
+            padding: 3rem 3rem 0 ;
+        }
+    }
+
+    &__subtotal {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    &__shipping {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+    }
+
+    &__tax {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid grey;
+        padding-bottom: 1rem;
+    }
+
+    &__total {
+        margin-bottom: 2rem;
+
+        &__wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__button {
+        padding: 1.5rem 3rem;
+        margin-bottom: 2rem;
+        background-color: #b5e48c;
+        font-size: 2rem;
+    }
 }
 

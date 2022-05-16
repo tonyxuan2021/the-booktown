@@ -2,7 +2,7 @@
 
 .footer {
     &__social__wrapper {
-        width: 50%;
+        // width: 50%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -11,6 +11,7 @@
 
         @include tablet {
             font-size: 2.4rem;
+            width: 50%;
         }
 
         @include desktop {
