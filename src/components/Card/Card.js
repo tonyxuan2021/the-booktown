@@ -4,16 +4,31 @@ import "./Card.scss";
 import axios from "axios";
 const Card = ({ dataObj, isbn }) => {
   const [imgUrl, setImgUrl] = useState("");
+  const [data2, setData2] = useState("");
 
-  console.log(isbn);
+  // console.log(isbn);
 
   useEffect(() => {
     axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
       .then((data2) => {
         setImgUrl(data2.data.items[0].volumeInfo.imageLinks.thumbnail);
+        setData2(data2);
       });
   }, []);
+
+  if (!data2) {
+    return (
+      <section>
+        <p>... Loading your bookData ...</p>
+      </section>
+    );
+  }
+
+  let ratingScore = data2.data.items[0].volumeInfo.averageRating;
+  let ratingCount = data2.data.items[0].volumeInfo.ratingsCount;
+
+  // console.log(data2.data.items[0].volumeInfo.ratingsCount);
 
   return (
     <div className="card__wrapper">
@@ -22,6 +37,10 @@ const Card = ({ dataObj, isbn }) => {
       <p className="card__author">{dataObj.author}</p>
       <p>
         {dataObj.price === "0.00" ? (dataObj.price = "20.00") : dataObj.price}
+        <div className="card__review__wrapper">
+          <p>{ratingScore === undefined ? (ratingScore = 3) : ratingScore}</p>
+          <p>{ratingCount === undefined ? (ratingCount = 0+ " reviews") : ratingCount + " reviews"}</p>
+        </div>
       </p>
       <Button />
     </div>

@@ -66,6 +66,12 @@
         }
     }
 
+    &__review__wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
     &__img {
         margin: 0;
         margin-bottom: 1rem;
