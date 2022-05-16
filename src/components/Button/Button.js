@@ -1,14 +1,14 @@
 import React from "react";
 import "./Button.scss";
 
-const Button = ({ addToCart, dataObj }) => {
+const Button = ({ addToCart, dataObj, bookImgUrl }) => {
   // console.log(addToCart)
   return (
     <div>
       <button
         className="btn"
         onClick={() => {
-          addToCart(dataObj.name, dataObj.price);
+          addToCart(dataObj.title, dataObj.price, bookImgUrl, dataObj.author);
         }}
       >
         ADD TO CART

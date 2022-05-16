@@ -1,6 +1,5 @@
 import "../App.scss";
 import React, { Component, useContext } from "react";
-import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 import Category from "../components/Category/Category";
 import Card from "../components/Card/Card";
@@ -44,9 +43,8 @@ class HomePage extends Component {
 
     return (
       <div>
-        {/* <Header />
         <Hero />
-        <Category /> */}
+        <Category />
         <h3 className="card__title">Best Sellers</h3>
         <div className="card__each__wrapper">
           {this.state.bookData.map((bookData) => (

@@ -31,6 +31,7 @@ const Card = ({ dataObj, isbn }) => {
 
   let ratingScore = data2.data.items[0].volumeInfo.averageRating;
   let ratingCount = data2.data.items[0].volumeInfo.ratingsCount;
+  let bookImgUrl = data2.data.items[0].volumeInfo.imageLinks.thumbnail;
 
   return (
     <div className="card__wrapper">
@@ -44,7 +45,7 @@ const Card = ({ dataObj, isbn }) => {
         <Rating value={ratingScore} text={ratingCount} />
       </div>
 
-      <Button addToCart={addToCart} dataObj={dataObj}/>
+      <Button addToCart={addToCart} dataObj={dataObj} bookImgUrl={bookImgUrl}/>
     </div>
   );
 };

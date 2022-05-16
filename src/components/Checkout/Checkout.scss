@@ -1,0 +1,70 @@
+@use "../../styles/mixins" as *;
+
+.checkout {
+    &__title {
+        padding: 1rem 2rem;
+    }
+
+    &__img {
+        // max-height: 180px;
+        margin: 0;
+
+    }
+
+    &__wrapper {
+        padding: 1rem 2rem;
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            padding: 5rem 3rem;
+        }
+    }
+
+    &__book {
+        &__wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 3rem 0;
+            border-bottom: 1px solid grey;
+
+            @include tablet {
+                justify-content: space-around;
+            }
+        }
+
+        &__name {
+            margin: 0;
+        }
+
+        &__price {
+            margin: 0;
+        }
+
+        &__author {
+            margin: 0;
+        }
+
+        &__title__wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            // width: 25%;
+            margin: 0;
+        }
+
+        &__flex {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            justify-content: space-between;
+            // align-items: center;
+            width: 50%;
+        }
+    }
+    
+
+}
+
