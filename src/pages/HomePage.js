@@ -44,9 +44,9 @@ class HomePage extends Component {
 
     return (
       <div>
-        <Header />
+        {/* <Header />
         <Hero />
-        <Category />
+        <Category /> */}
         <h3 className="card__title">Best Sellers</h3>
         <div className="card__each__wrapper">
           {this.state.bookData.map((bookData) => (

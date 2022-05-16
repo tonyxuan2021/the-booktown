@@ -4,15 +4,31 @@ import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+// import { Link } from "react-router-dom";
+import CartContext from "../../CartContext";
+import { useContext } from "react";
 
 const Header = () => {
+  const {items} = useContext(CartContext);
+  console.log(items)
+
   return (
     <div className="header__wrapper">
       <div className="header--top">
         <img src={logo} className="header__img"></img>
-        <div className="header--right">
-          <p>Login</p>
-          <FontAwesomeIcon icon={faCartShopping} />
+        <div>
+          <div className="header--right">
+            <p>Login</p>
+            <FontAwesomeIcon icon={faUser} />
+          </div>
+          <div>
+            {/* <Link to="/cart" className="header--right"> */}
+            <p>Cart</p>
+            <FontAwesomeIcon icon={faCartShopping} />
+            <span>{items.length}</span>
+            {/* </Link> */}
+          </div>
         </div>
       </div>
       <div className="search__wrapper">
