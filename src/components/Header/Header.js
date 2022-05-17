@@ -11,7 +11,7 @@ import { useContext } from "react";
 
 const Header = () => {
   const { items } = useContext(CartContext);
-  console.log(items);
+  // console.log(items);
 
   return (
     <div className="header__wrapper">
