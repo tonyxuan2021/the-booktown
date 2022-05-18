@@ -1,5 +1,6 @@
 import "./Upload.scss";
 import React, { Component } from 'react'
+import axios from "axios";
 
 
 class Upload extends Component {
@@ -14,9 +15,9 @@ class Upload extends Component {
         })
     }
       
-    fileUploadHandler = e => {
-        
-    }
+    // fileUploadHandler = e => {
+    //     axios.post("")
+    // }
 
 
   render() {
