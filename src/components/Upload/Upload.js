@@ -18,7 +18,7 @@ class Upload extends Component {
       .post("http://localhost:5050/usedbook", {
         name: e.target.name.value,
         price: e.target.price.value,
-
+      filepathUrl: e.target.file.files[0].name
         // image: fd
       })
       .then((response) => {
