@@ -1,0 +1,32 @@
+
+
+.upload {
+
+    &__form {
+        padding: 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__info__wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__label {
+        width: 40%;
+    }
+
+    &__input {
+        width: 60%;
+    }
+
+    &__btn {
+        width: 35%;
+        border-radius: 10px;
+        padding: 1rem 2rem;
+    }
+}
+

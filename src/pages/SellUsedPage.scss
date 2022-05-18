@@ -1,0 +1,64 @@
+@use "../styles/mixins" as *;
+
+
+.upload {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 3rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    
+        @include tablet {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+    }
+
+    &__header {
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+}
+
+
+.upload__card {
+
+    &__wrapper {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 380px;
+    gap: 10px;
+    border: 1px solid gray;
+    padding: 1rem 2rem;
+    width: 300px;
+
+    @include tablet {
+        width: 40%;
+        margin-bottom: 2rem;
+    }
+
+
+    @include desktop {
+    width: 30%;
+    }
+
+    }
+
+    &__img {
+        width: 128px;
+        height: 200px;
+        object-fit: cover;
+    }
+}
+

@@ -1,8 +1,10 @@
 import HomePage from "./pages/HomePage";
+import SellUsedPage from "./pages/SellUsedPage";
 import Checkout from "./components/Checkout/Checkout";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./CartContext";
 import Header from "./components/Header/Header";
+import Upload from "./components/Upload/Upload";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/checkout" component={Checkout} />
+            <Route path="/used" exact component={SellUsedPage} />
+            <Route path="/used/upload" component={Upload} />
           </Switch>
         </BrowserRouter>
       </CartProvider>

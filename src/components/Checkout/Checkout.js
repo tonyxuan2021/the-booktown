@@ -13,10 +13,10 @@ const Checkout = () => {
 
   //   console.log(items)
 
-  const itemPrice = items.reduce((a, c) => a + c.price, 0);
-  const taxPrice = parseInt((itemPrice * 0.12).toFixed(2));
+  const itemPrice = parseFloat(items.reduce((a, c) => a + c.price, 0).toFixed(2));
+  const taxPrice = parseFloat((itemPrice * 0.12).toFixed(2));
   const shippingPrice = itemPrice > 50 ? 0 : 9.99;
-  const totalPrice = parseInt(
+  const totalPrice = parseFloat(
     (itemPrice + shippingPrice + taxPrice).toFixed(2)
   );
 
@@ -53,17 +53,17 @@ const Checkout = () => {
                 <img className="checkout__img" src={item.img}></img>
                 <div className="checkout__book__flex">
                   <div className="checkout__book__title__wrapper">
-                    <h2 className="checkout__book__name">{item.name}</h2>
+                    <h3 className="checkout__book__name">{item.name}</h3>
                     <p className="checkout__book__author">{`by ${item.author}`}</p>
                   </div>
-                  <h2 className="checkout__book__price">{`$ ${item.price}`}</h2>
+                  <h3 className="checkout__book__price">{`$ ${item.price}`}</h3>
                 </div>
               </div>
             );
           })}
         </div>
         <div className="order__summary">
-          <h1 className="order__title">Order Summary</h1>
+          <h2 className="order__title">Order Summary</h2>
           <div className="order__subtotal">
             <p>Subtotal</p>
             <p>{itemPrice}</p>
@@ -86,6 +86,8 @@ const Checkout = () => {
             token={makePayment}
             name="Buy books"
             amount={totalPrice * 100}
+            shippingAddress
+            billingAddress
           >
             <button className="order__button">
               Ready to Checkout ${totalPrice}

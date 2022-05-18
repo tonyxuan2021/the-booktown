@@ -16,22 +16,29 @@ const Header = () => {
   return (
     <div className="header__wrapper">
       <div className="header--top">
-        <Link to="/">
+        <Link to="/" className="header__link">
           <img src={logo} className="header__img"></img>
         </Link>
-        <div>
+        <div className="header--right__wrapper">
           <div className="header--right">
             <p>Login</p>
             <FontAwesomeIcon icon={faUser} />
           </div>
-          <div>
+          <div className="header--btm">
             <Link to="/checkout" className="header--right">
               <p>Cart</p>
-              <FontAwesomeIcon icon={faCartShopping} />
-              <span>{items.length}</span>
+              <FontAwesomeIcon icon={faCartShopping} className="header__cart" />
+              <span className="header__cart__num">{items.length}</span>
             </Link>
           </div>
         </div>
+      </div>
+      <div className="header__bar">
+        <p>About</p>
+        <p>Events</p>
+        <Link to="/used" className="header__used">
+          <p>Sell Used</p>
+        </Link>
       </div>
       <div className="search__wrapper">
         <input
