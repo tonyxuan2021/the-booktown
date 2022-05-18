@@ -57,10 +57,14 @@
         text-decoration: none;
         color: black;
 
+
         &__wrapper {
             display: flex;
-            flex-direction: column;
             gap: 1rem;
+
+            @include tablet {
+            flex-direction: column;
+            }
         }
 
 
@@ -87,22 +91,39 @@
         border-radius: 50%;
         position: absolute;
         top: -9px;
-        right: -3px;
+        right: -10px;
+
+        @include desktop {
+        right: -5px;
+
+        }
     }
     }
 
     &__bar {
         display: flex;
-        justify-content: space-between;
         margin-bottom: 1rem;
         font-size: 1.6rem;
+        gap: 2rem;
+        margin: 0;
+        // width: 100%;
 
         @include tablet {
             flex-direction: column;
+            justify-content: space-between;
+            gap: 1rem;
+
         }
     }
 
     &__used {
+        text-decoration: none;
+        color: black;
+        margin: 0;
+    }
+
+    &__home {
+        margin: 0;
         text-decoration: none;
         color: black;
     }

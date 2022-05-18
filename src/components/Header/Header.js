@@ -34,8 +34,9 @@ const Header = () => {
         </div>
       </div>
       <div className="header__bar">
-        <p>About</p>
-        <p>Events</p>
+        <Link to="/" className="header__home">
+          <p>Home</p>
+        </Link>
         <Link to="/used" className="header__used">
           <p>Sell Used</p>
         </Link>

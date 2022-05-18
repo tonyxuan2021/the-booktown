@@ -23,7 +23,7 @@ class SellUsedPage extends Component {
       <div>
         <div className="upload__header">
           <h1>Used Book List</h1>
-          <Link to="/used/upload">
+          <Link to="/used/upload" className="upload__button">
             <button>UPLOAD</button>
           </Link>
         </div>
