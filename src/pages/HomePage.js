@@ -21,7 +21,7 @@ class HomePage extends Component {
   componentDidMount() {
     axios
       .get(
-        `https://api.nytimes.com/svc/books/v3/lists.json?api-key=${API_KEY_NYT}&list=Hardcover Fiction`
+        `https://api.nytimes.com/svc/books/v3/lists.json?api-key=${API_KEY_NYT}&list=Combined Print and E-Book Fiction`
       )
       .then((data) => {
         // console.log("book", data);

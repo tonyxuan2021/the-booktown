@@ -5,6 +5,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./CartContext";
 import Header from "./components/Header/Header";
 import Upload from "./components/Upload/Upload";
+import Horror from "./components/Category/Horror";
+import Food from "./components/Category/Food";
+import Adventure from "./components/Category/Adventure";
+import Travel from "./components/Category/Travel";
 
 function App() {
   return (
@@ -14,6 +18,10 @@ function App() {
           <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/horror" component={Horror} />
+            <Route path="/food" component={Food} />
+            <Route path="/adventure" component={Adventure} />
+            <Route path="/travel" component={Travel} />
             <Route path="/checkout" component={Checkout} />
             <Route path="/used" exact component={SellUsedPage} />
             <Route path="/used/upload" component={Upload} />
