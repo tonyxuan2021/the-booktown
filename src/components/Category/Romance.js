@@ -3,14 +3,14 @@ import "./Genre.scss";
 import uniqid from "uniqid";
 import axios from "axios";
 
-class Child extends Component {
+class Romance extends Component {
   state = {
     bookDataHorror: [],
   };
 
   componentDidMount() {
     axios
-      .get("https://www.googleapis.com/books/v1/volumes?q=travel")
+      .get("https://www.googleapis.com/books/v1/volumes?q=romance")
       .then((response) => {
         this.setState({
           bookDataHorror: response.data.items,
@@ -45,4 +45,4 @@ class Child extends Component {
   }
 }
 
-export default Child;
+export default Romance;

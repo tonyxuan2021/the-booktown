@@ -10,6 +10,10 @@ import Food from "./components/Category/Food";
 import Adventure from "./components/Category/Adventure";
 import Travel from "./components/Category/Travel";
 import SearchPage from "./pages/SearchPage";
+import Business from "./components/Category/Business";
+import Child from "./components/Category/Child";
+import Fantasy from "./components/Category/Fantasy";
+import Romance from "./components/Category/Romance";
 
 function App() {
   return (
@@ -23,6 +27,10 @@ function App() {
             <Route path="/horror" component={Horror} />
             <Route path="/food" component={Food} />
             <Route path="/adventure" component={Adventure} />
+            <Route path="/business" component={Business} />
+            <Route path="/child" component={Child} />
+            <Route path="/fantasy" component={Fantasy} />
+            <Route path="/romance" component={Romance} />
             <Route path="/travel" component={Travel} />
             <Route path="/checkout" component={Checkout} />
             <Route path="/used" exact component={SellUsedPage} />

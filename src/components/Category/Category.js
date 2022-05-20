@@ -11,7 +11,7 @@ class Category extends Component {
         <h3 className="category__title">Book Categories</h3>
         <ul className="category__wrapper">
           <div className="category__list__wrapper">
-            <Link to="/adventure">
+            <Link to="/adventure" className="category__link">
               <li>Adventure</li>
             </Link>
             <FontAwesomeIcon
@@ -20,28 +20,34 @@ class Category extends Component {
             />
           </div>
           <div className="category__list__wrapper">
-            <li>Business</li>
+            <Link to="/business" className="category__link">
+              <li>Business</li>
+            </Link>
             <FontAwesomeIcon
               icon={faArrowRight}
               className="category__list__icon"
             />
           </div>
           <div className="category__list__wrapper">
-            <li>Child</li>
+            <Link to="/child" className="category__link">
+              <li>Child</li>
+            </Link>
             <FontAwesomeIcon
               icon={faArrowRight}
               className="category__list__icon"
             />
           </div>
           <div className="category__list__wrapper">
-            <li>Fantasy</li>
+            <Link to="/adventure" className="category__link">
+              <li>Fantasy</li>
+            </Link>
             <FontAwesomeIcon
               icon={faArrowRight}
               className="category__list__icon"
             />
           </div>
           <div className="category__list__wrapper">
-            <Link to="/food">
+            <Link to="/food" className="category__link">
               <li>Food</li>
             </Link>
             <FontAwesomeIcon
@@ -50,7 +56,7 @@ class Category extends Component {
             />
           </div>
           <div className="category__list__wrapper">
-            <Link to="/horror">
+            <Link to="/horror" className="category__link">
               <li>Horror</li>
             </Link>
             <FontAwesomeIcon
@@ -59,14 +65,16 @@ class Category extends Component {
             />
           </div>
           <div className="category__list__wrapper">
-            <li>Romance</li>
+            <Link to="/romance" className="category__link">
+              <li>Romance</li>
+            </Link>{" "}
             <FontAwesomeIcon
               icon={faArrowRight}
               className="category__list__icon"
             />
           </div>
           <div className="category__list__wrapper">
-            <Link to="/travel">
+            <Link to="/travel" className="category__link">
               <li>Travel</li>
             </Link>
             <FontAwesomeIcon

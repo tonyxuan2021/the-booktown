@@ -46,7 +46,7 @@ const Header = () => {
           <img src={logo} className="header__img"></img>
         </Link>
         <div className="header--right__wrapper">
-          <div className="header--right">
+          <div className="header--top">
             <p>Login</p>
             <FontAwesomeIcon icon={faUser} />
           </div>
@@ -73,26 +73,7 @@ const Header = () => {
           placeholder="Search over millions of books..."
           name="search"
         ></input>
-        {/* <Link
-          to={{
-            pathname: "/search",
-            state: {
-              booksData,
-            },
-          }}
-        >
-          <FontAwesomeIcon icon={faSearch} className="search__icon" />
-        </Link> */}
-        {/* <Link
-          to={{
-            pathname: "/search",
-            state: {
-              booksData,
-            },
-          }}
-        > */}
         <button onSubmit={handleSubmit}>Search</button>
-        {/* </Link> */}
       </form>
     </div>
   );

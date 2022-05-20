@@ -39,12 +39,8 @@ class SearchPage extends Component {
           console.log(bookObj.volumeInfo);
           return (
             <div className="search__card__wrapper" key={uniqid()}>
-              {/* <img
-                src={bookObj.volumeInfo.imageLinks.smallThumbnail}
-                className="search__card__img"
-              ></img> */}
               <img
-                src={bookObj.volumeInfo.imageLinks? bookObj.volumeInfo.imageLinks.smallThumbnail : "Loading"}
+                src={bookObj.volumeInfo.imageLinks? bookObj.volumeInfo.imageLinks.smallThumbnail : "https://picsum.photos/128/195"}
                 className="search__card__img"
               ></img>
               <h3>{bookObj.volumeInfo.title}</h3>

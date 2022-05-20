@@ -10,16 +10,10 @@ class Adventure extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://hapi-books.p.rapidapi.com/week/adventure`, {
-        headers: {
-          "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
-          "X-RapidAPI-Key":
-            "f95dacf387msh6f0d149205e4e5ap1fd2a5jsn211e1f8ce304",
-        },
-      })
+      .get("https://www.googleapis.com/books/v1/volumes?q=adventure")
       .then((response) => {
         this.setState({
-          bookDataHorror: response.data.slice(85),
+          bookDataHorror: response.data.items,
         });
       });
   }
@@ -33,14 +27,14 @@ class Adventure extends Component {
       );
     }
 
-    // console.log(this.state.bookDataHorror);
+    console.log(this.state.bookDataHorror);
     return (
       <div className="genre__wrapper">
         {this.state.bookDataHorror.map((bookObj) => {
           return (
             <div className="genre__card__wrapper" key={uniqid()}>
-              <img src={bookObj.cover} className="genre__card__img"></img>
-              <h3>{bookObj.name}</h3>
+              <img src={bookObj.volumeInfo.imageLinks.smallThumbnail} className="genre__card__img"></img>
+              <h3>{bookObj.volumeInfo.imageLinks.title}</h3>
               <h3>$20</h3>
               <button className="genre__btn">Add to cart</button>
             </div>

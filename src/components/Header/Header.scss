@@ -102,10 +102,9 @@
 
     &__bar {
         display: flex;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         font-size: 1.6rem;
         gap: 2rem;
-        margin: 0;
         // width: 100%;
 
         @include tablet {

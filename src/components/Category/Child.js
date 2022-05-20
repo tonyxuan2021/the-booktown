@@ -10,7 +10,7 @@ class Child extends Component {
 
   componentDidMount() {
     axios
-      .get("https://www.googleapis.com/books/v1/volumes?q=travel")
+      .get("https://www.googleapis.com/books/v1/volumes?q=child")
       .then((response) => {
         this.setState({
           bookDataHorror: response.data.items,
