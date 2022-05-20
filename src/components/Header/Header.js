@@ -14,14 +14,13 @@ const Header = () => {
   const { items } = useContext(CartContext);
   const [booksData, setBooksData] = useState([]);
 
-    let history = useHistory();
+  let history = useHistory();
 
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      const search = e.target.search.value;
-      // console.log(search);
-      axios
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const search = e.target.search.value;
+    // console.log(search);
+    axios
       .get(`https://hapi-books.p.rapidapi.com/search/${search}`, {
         headers: {
           "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
@@ -34,10 +33,11 @@ const Header = () => {
         setBooksData(data);
         history.push(`/search/${search}`);
       });
-  
+
+    e.target.reset();
   };
 
-  console.log(booksData);
+  // console.log(booksData);
 
   return (
     <div className="header__wrapper">
@@ -91,7 +91,7 @@ const Header = () => {
             },
           }}
         > */}
-          <button onSubmit={handleSubmit}>Search</button>
+        <button onSubmit={handleSubmit}>Search</button>
         {/* </Link> */}
       </form>
     </div>
