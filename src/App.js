@@ -9,6 +9,7 @@ import Horror from "./components/Category/Horror";
 import Food from "./components/Category/Food";
 import Adventure from "./components/Category/Adventure";
 import Travel from "./components/Category/Travel";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/search/:query" component={SearchPage} />
             <Route path="/horror" component={Horror} />
             <Route path="/food" component={Food} />
             <Route path="/adventure" component={Adventure} />

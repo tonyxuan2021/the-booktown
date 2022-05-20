@@ -7,6 +7,7 @@ import Footer from "../components/Footer/Footer";
 import axios from "axios";
 import "../components/Card/Card.scss";
 import uniqid from "uniqid";
+import Header from "../components/Header/Header";
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 
@@ -49,11 +50,11 @@ class HomePage extends Component {
         <div className="card__each__wrapper">
           {this.state.bookData.map((bookData) => (
             <div className="card__main__wrapper" key={uniqid()}>
-                <Card
-                  // dataInitObj={this.state.selectedBook}
-                  dataObj={bookData.book_details[0]}
-                  isbn={bookData.isbns[0].isbn13}
-                />
+              <Card
+                // dataInitObj={this.state.selectedBook}
+                dataObj={bookData.book_details[0]}
+                isbn={bookData.isbns[0].isbn13}
+              />
             </div>
           ))}
         </div>

@@ -1,17 +1,43 @@
-import React from "react";
+// import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CartContext from "../../CartContext";
-import { useContext } from "react";
+import axios from "axios";
 
 const Header = () => {
   const { items } = useContext(CartContext);
-  // console.log(items);
+  const [booksData, setBooksData] = useState([]);
+
+    let history = useHistory();
+
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const search = e.target.search.value;
+      // console.log(search);
+      axios
+      .get(`https://hapi-books.p.rapidapi.com/search/${search}`, {
+        headers: {
+          "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
+          "X-RapidAPI-Key":
+            "f95dacf387msh6f0d149205e4e5ap1fd2a5jsn211e1f8ce304",
+        },
+      })
+      .then((data) => {
+        // console.log(data)
+        setBooksData(data);
+        history.push(`/search/${search}`);
+      });
+  
+  };
+
+  console.log(booksData);
 
   return (
     <div className="header__wrapper">
@@ -41,13 +67,33 @@ const Header = () => {
           <p>Sell Used</p>
         </Link>
       </div>
-      <div className="search__wrapper">
+      <form className="search__form__wrapper" onSubmit={handleSubmit}>
         <input
           className="search__input"
           placeholder="Search over millions of books..."
+          name="search"
         ></input>
-        <FontAwesomeIcon icon={faSearch} className="search__icon" />
-      </div>
+        {/* <Link
+          to={{
+            pathname: "/search",
+            state: {
+              booksData,
+            },
+          }}
+        >
+          <FontAwesomeIcon icon={faSearch} className="search__icon" />
+        </Link> */}
+        {/* <Link
+          to={{
+            pathname: "/search",
+            state: {
+              booksData,
+            },
+          }}
+        > */}
+          <button onSubmit={handleSubmit}>Search</button>
+        {/* </Link> */}
+      </form>
     </div>
   );
 };
