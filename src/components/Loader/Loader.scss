@@ -1,0 +1,32 @@
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    font-size: 4rem;
+    animation: pulse 1s linear 0s infinite normal forwards;
+}
+
+@keyframes pulse {
+    0% {
+        color: hsla(0, 0%, 100%, 1);
+    }
+
+    50% {
+        color: hsla(0, 0%, 100%, 0.1);
+    }
+
+    100% {
+        color: hsla(0, 0%, 100%, 1);
+    }
+}

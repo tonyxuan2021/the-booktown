@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import uniqid from "uniqid";
 import "./SearchPage.scss";
+import Loader from "../components/Loader/Loader";
 
 class SearchPage extends Component {
   state = {
     bookSearchData: [],
+    loader: true,
   };
-
 
   componentDidMount() {
     axios
@@ -17,6 +18,7 @@ class SearchPage extends Component {
       .then((response) => {
         this.setState({
           bookSearchData: response.data.items,
+          loader: false,
         });
       });
   }
@@ -28,7 +30,7 @@ class SearchPage extends Component {
     if (this.state.bookSearchData.length === 0) {
       return (
         <section>
-          <p>... Loading your bookData ...</p>
+          <Loader>Loading...</Loader>
         </section>
       );
     }
@@ -36,17 +38,24 @@ class SearchPage extends Component {
     return (
       <div className="search__wrapper">
         {this.state.bookSearchData.map((bookObj) => {
-          console.log(bookObj.volumeInfo);
           return (
             <div className="search__card__wrapper" key={uniqid()}>
               <img
-                src={bookObj.volumeInfo.imageLinks? bookObj.volumeInfo.imageLinks.smallThumbnail : "https://picsum.photos/128/195"}
+                src={
+                  bookObj.volumeInfo.imageLinks
+                    ? bookObj.volumeInfo.imageLinks.smallThumbnail
+                    : "https://picsum.photos/128/195"
+                }
                 className="search__card__img"
               ></img>
               <h3>{bookObj.volumeInfo.title}</h3>
-              <p>{bookObj.volumeInfo.authors? bookObj.volumeInfo.authors[0] : ""}</p>
-              {/* <h3>$19.99</h3>
-              <button className="btn">Add to cart</button> */}
+              <p>
+                {bookObj.volumeInfo.authors
+                  ? bookObj.volumeInfo.authors[0]
+                  : ""}
+              </p>
+              <h3>$19.99</h3>
+              <button className="btn">Add to cart</button>
             </div>
           );
         })}

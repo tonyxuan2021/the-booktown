@@ -1,7 +1,6 @@
 import "./Upload.scss";
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 class Upload extends Component {
   state = {
@@ -18,24 +17,20 @@ class Upload extends Component {
       .post("http://localhost:5050/usedbook", {
         name: e.target.name.value,
         price: e.target.price.value,
-      filepathUrl: e.target.file.files[0].name
+        filepathUrl: e.target.file.files[0].name,
         // image: fd
       })
       .then((response) => {
-        axios.post("http://localhost:5050/usedbook/image", fd).then((response)=> {
-        console.log(response)
-        });
+        axios
+          .post("http://localhost:5050/usedbook/image", fd)
+          .then((response) => {
+            console.log(response);
+          });
       });
 
-    console.log(fd);
+    // console.log(fd);
 
     e.target.reset();
-  };
-
-  fileChangeHandler = (e) => {
-    // this.setState({
-    //   selectedFile: e.target.files[0],
-    // });
   };
 
   fileUploadHandler = (e) => {
@@ -64,12 +59,12 @@ class Upload extends Component {
           </label>
           <input id="price" className="upload__input" />
         </div>
-        <div className="upload__info__wrapper">
+        {/* <div className="upload__info__wrapper">
           <label className="upload__label" htmlFor="city">
             City of neighborhood
           </label>
           <input id="city" className="upload__input" />
-        </div>
+        </div> */}
         <div className="upload__info__wrapper">
           <label className="upload__label" htmlFor="file">
             Image

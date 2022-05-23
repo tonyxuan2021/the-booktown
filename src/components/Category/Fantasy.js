@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import "./Genre.scss";
 import uniqid from "uniqid";
 import axios from "axios";
+import Loader from "../Loader/Loader";
 
 class Fantasy extends Component {
   state = {
-    bookDataHorror: [],
+    bookDataFantasy: [],
   };
 
   componentDidMount() {
@@ -13,28 +14,28 @@ class Fantasy extends Component {
       .get("https://www.googleapis.com/books/v1/volumes?q=fantasy")
       .then((response) => {
         this.setState({
-          bookDataHorror: response.data.items,
+          bookDataFantasy: response.data.items,
         });
       });
   }
 
   render() {
-    if (this.state.bookDataHorror === 0) {
+    if (this.state.bookDataFantasy === 0) {
       return (
         <section>
-          <p>... Loading your bookData ...</p>
+          <Loader>Loading...</Loader>
         </section>
       );
     }
 
-    console.log(this.state.bookDataHorror);
     return (
       <div className="genre__wrapper">
-        {this.state.bookDataHorror.map((bookObj) => {
+        {this.state.bookDataFantasy.map((bookObj) => {
           return (
             <div className="genre__card__wrapper" key={uniqid()}>
               <img src={bookObj.volumeInfo.imageLinks.smallThumbnail} className="genre__card__img"></img>
-              <h3>{bookObj.volumeInfo.imageLinks.title}</h3>
+              <h3>{bookObj.volumeInfo.title}</h3>
+              <p>{bookObj.volumeInfo.authors}</p>
               <h3>$20</h3>
               <button className="genre__btn">Add to cart</button>
             </div>

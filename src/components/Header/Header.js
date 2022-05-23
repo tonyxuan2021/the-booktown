@@ -4,7 +4,6 @@ import logo from "../../assets/logo.png";
 import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory } from "react-router-dom";
 import CartContext from "../../CartContext";
@@ -21,15 +20,11 @@ const Header = () => {
     const search = e.target.search.value;
     // console.log(search);
     axios
-      .get(`https://hapi-books.p.rapidapi.com/search/${search}`, {
-        headers: {
-          "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
-          "X-RapidAPI-Key":
-            "f95dacf387msh6f0d149205e4e5ap1fd2a5jsn211e1f8ce304",
-        },
-      })
+      .get(
+        `https://www.googleapis.com/books/v1/volumes?q=intitle:${search}`
+      )
       .then((data) => {
-        // console.log(data)
+        console.log(data)
         setBooksData(data);
         history.push(`/search/${search}`);
       });

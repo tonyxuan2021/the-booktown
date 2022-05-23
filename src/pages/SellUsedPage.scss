@@ -1,4 +1,4 @@
-@use "../styles/mixins" as *;
+@use "../styles/mixins"as *;
 
 
 .upload {
@@ -10,7 +10,7 @@
         align-items: center;
         text-align: center;
         gap: 2rem;
-    
+
         @include tablet {
             flex-direction: row;
             align-items: center;
@@ -25,10 +25,40 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 2rem;
+
+        @include tablet {
+            margin-top: 5rem;
+        }
     }
 
     &__button {
         margin: 0;
+    }
+
+    &__btn {
+        border: 1px solid black;
+        width: 100%;
+        color: black;
+        background-color: transparent;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        transition: 0.3s;
+        width: 9rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #b5e48c;
+        }
+
+        &:active {
+            // background-color: #3e8e41;
+            box-shadow: 0 2px #666;
+            transform: translate(4px, 4px);
+        }
     }
 
 }
@@ -37,26 +67,26 @@
 .upload__card {
 
     &__wrapper {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 410px;
-    gap: 10px;
-    border: 1px solid gray;
-    padding: 1rem 2rem;
-    width: 300px;
 
-    @include tablet {
-        width: 40%;
-        margin-bottom: 2rem;
-    }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 410px;
+        gap: 10px;
+        border: 1px solid gray;
+        padding: 1rem 2rem;
+        width: 300px;
+
+        @include tablet {
+            width: 40%;
+            margin-bottom: 2rem;
+        }
 
 
-    @include desktop {
-    width: 30%;
-    }
+        @include desktop {
+            width: 30%;
+        }
 
     }
 
@@ -67,4 +97,3 @@
     }
 
 }
-

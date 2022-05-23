@@ -8,6 +8,7 @@ import axios from "axios";
 import "../components/Card/Card.scss";
 import uniqid from "uniqid";
 import Header from "../components/Header/Header";
+import Loader from "../components/Loader/Loader";
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 
@@ -37,7 +38,7 @@ class HomePage extends Component {
     if (this.state.bookData.length === 0 || !this.state.bookImg) {
       return (
         <section>
-          <p>... Loading your bookData ...</p>
+          <Loader>Loading...</Loader>
         </section>
       );
     }

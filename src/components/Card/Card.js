@@ -39,14 +39,14 @@ const Card = ({ dataObj, isbn }) => {
       <p className="card__name">{dataObj.title}</p>
       <p className="card__author">{dataObj.author}</p>
 
-      {dataObj.price === "0.00" ? (dataObj.price = 19.99) : dataObj.price}
+      <p className="card__price">
+        {`$ ${dataObj.price === "0.00" ? dataObj.price = 19.99 : dataObj.price}`}
+      </p>
       <div className="card__review__wrapper">
-
         <Rating value={ratingScore} text={ratingCount} />
       </div>
 
-      <Button addToCart={addToCart} dataObj={dataObj} bookImgUrl={bookImgUrl}/>
-
+      <Button addToCart={addToCart} dataObj={dataObj} bookImgUrl={bookImgUrl} />
     </div>
   );
 };
