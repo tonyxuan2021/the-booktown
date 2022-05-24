@@ -2,18 +2,16 @@ import React, { useContext } from "react";
 import CartContext from "../../CartContext";
 import uniqid from "uniqid";
 import "./Checkout.scss";
-import Footer from "../Footer/Footer";
 import StripeCheckout from "react-stripe-checkout";
-import axios, { AxiosError } from "axios";
 
 // console.log(process.env.REACT_APP_STRIPE_SECRET_KEY)
 
 const Checkout = () => {
   const { items } = useContext(CartContext);
 
-  //   console.log(items)
-
-  const itemPrice = parseFloat(items.reduce((a, c) => a + c.price, 0).toFixed(2));
+  const itemPrice = parseFloat(
+    items.reduce((a, c) => a + c.price, 0).toFixed(2)
+  );
   const taxPrice = parseFloat((itemPrice * 0.12).toFixed(2));
   const shippingPrice = itemPrice > 50 ? 0 : 9.99;
   const totalPrice = parseFloat(
@@ -95,7 +93,6 @@ const Checkout = () => {
           </StripeCheckout>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

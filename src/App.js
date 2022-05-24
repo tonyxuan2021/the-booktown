@@ -4,6 +4,7 @@ import Checkout from "./components/Checkout/Checkout";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./CartContext";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Upload from "./components/Upload/Upload";
 import Horror from "./components/Category/Horror";
 import Food from "./components/Category/Food";
@@ -36,6 +37,7 @@ function App() {
             <Route path="/used" exact component={SellUsedPage} />
             <Route path="/used/upload" component={Upload} />
           </Switch>
+          <Footer />
         </BrowserRouter>
       </CartProvider>
     </div>

@@ -7,7 +7,7 @@ import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="footer">
       <div className="footer__social__wrapper">
         <FontAwesomeIcon icon={faFacebook} />
         <FontAwesomeIcon icon={faInstagram} />

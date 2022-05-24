@@ -3,7 +3,6 @@ import React, { Component, useContext } from "react";
 import Hero from "../components/Hero/Hero";
 import Category from "../components/Category/Category";
 import Card from "../components/Card/Card";
-import Footer from "../components/Footer/Footer";
 import axios from "axios";
 import "../components/Card/Card.scss";
 import uniqid from "uniqid";
@@ -52,14 +51,12 @@ class HomePage extends Component {
           {this.state.bookData.map((bookData) => (
             <div className="card__main__wrapper" key={uniqid()}>
               <Card
-                // dataInitObj={this.state.selectedBook}
                 dataObj={bookData.book_details[0]}
                 isbn={bookData.isbns[0].isbn13}
               />
             </div>
           ))}
         </div>
-        <Footer />
       </div>
     );
   }

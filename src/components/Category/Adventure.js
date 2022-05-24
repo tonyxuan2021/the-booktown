@@ -36,7 +36,7 @@ class Adventure extends Component {
               <img src={bookObj.volumeInfo.imageLinks.smallThumbnail} className="genre__card__img"></img>
               <h3>{bookObj.volumeInfo.title}</h3>
               <p>{bookObj.volumeInfo.authors}</p>
-              <h3>$20</h3>
+              <h3>{`$ ${19.99}`}</h3>
               <button className="genre__btn">Add to cart</button>
             </div>
           );

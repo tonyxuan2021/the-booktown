@@ -1,6 +1,8 @@
 @use "../../styles/mixins" as *;
 
 .footer {
+    margin-top: auto;
+
     &__social__wrapper {
         // width: 50%;
         display: flex;
@@ -12,6 +14,8 @@
         @include tablet {
             font-size: 2.4rem;
             width: 50%;
+            margin: 0 auto;
+            margin: 5rem auto;
         }
 
         @include desktop {
