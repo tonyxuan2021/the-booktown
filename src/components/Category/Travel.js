@@ -4,9 +4,9 @@ import uniqid from "uniqid";
 import axios from "axios";
 import Loader from "../Loader/Loader";
 
-class Child extends Component {
+class Travel extends Component {
   state = {
-    bookDataTravel: [],
+    bookDataAdventure: [],
   };
 
   componentDidMount() {
@@ -14,13 +14,13 @@ class Child extends Component {
       .get("https://www.googleapis.com/books/v1/volumes?q=travel")
       .then((response) => {
         this.setState({
-          bookDataTravel: response.data.items,
+          bookDataAdventure: response.data.items,
         });
       });
   }
 
   render() {
-    if (this.state.bookDataTravel === 0) {
+    if (this.state.bookDataAdventure.length === 0) {
       return (
         <section>
           <Loader>Loading...</Loader>
@@ -30,10 +30,16 @@ class Child extends Component {
 
     return (
       <div className="genre__wrapper">
-        {this.state.bookDataTravel.map((bookObj) => {
+        {this.state.bookDataAdventure.map((bookObj) => {
           return (
             <div className="genre__card__wrapper" key={uniqid()}>
-              <img src={bookObj.volumeInfo.imageLinks.smallThumbnail} className="genre__card__img"></img>
+              <img
+                src={
+                  bookObj.volumeInfo.imageLinks?.smallThumbnail ||
+                  bookObj.volumeInfo.imageLinks?.thumbnail
+                }
+                className="genre__card__img"
+              ></img>
               <h3>{bookObj.volumeInfo.title}</h3>
               <p>{bookObj.volumeInfo.authors}</p>
               <h3>{`$ ${19.99}`}</h3>
@@ -46,4 +52,4 @@ class Child extends Component {
   }
 }
 
-export default Child;
+export default Travel;

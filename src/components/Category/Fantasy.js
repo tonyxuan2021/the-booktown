@@ -6,7 +6,7 @@ import Loader from "../Loader/Loader";
 
 class Fantasy extends Component {
   state = {
-    bookDataFantasy: [],
+    bookDataAdventure: [],
   };
 
   componentDidMount() {
@@ -14,13 +14,13 @@ class Fantasy extends Component {
       .get("https://www.googleapis.com/books/v1/volumes?q=fantasy")
       .then((response) => {
         this.setState({
-          bookDataFantasy: response.data.items,
+          bookDataAdventure: response.data.items,
         });
       });
   }
 
   render() {
-    if (this.state.bookDataFantasy === 0) {
+    if (this.state.bookDataAdventure.length === 0) {
       return (
         <section>
           <Loader>Loading...</Loader>
@@ -28,12 +28,19 @@ class Fantasy extends Component {
       );
     }
 
+
     return (
       <div className="genre__wrapper">
-        {this.state.bookDataFantasy.map((bookObj) => {
+        {this.state.bookDataAdventure.map((bookObj) => {
           return (
             <div className="genre__card__wrapper" key={uniqid()}>
-              <img src={bookObj.volumeInfo.imageLinks.smallThumbnail} className="genre__card__img"></img>
+              <img
+                src={
+                  bookObj.volumeInfo.imageLinks?.smallThumbnail ||
+                  bookObj.volumeInfo.imageLinks?.thumbnail
+                }
+                className="genre__card__img"
+              ></img>
               <h3>{bookObj.volumeInfo.title}</h3>
               <p>{bookObj.volumeInfo.authors}</p>
               <h3>{`$ ${19.99}`}</h3>

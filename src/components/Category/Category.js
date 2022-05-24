@@ -38,7 +38,7 @@ class Category extends Component {
             />
           </div>
           <div className="category__list__wrapper">
-            <Link to="/adventure" className="category__link">
+            <Link to="/fantasy" className="category__link">
               <li>Fantasy</li>
             </Link>
             <FontAwesomeIcon

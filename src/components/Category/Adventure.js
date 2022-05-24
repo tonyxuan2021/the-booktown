@@ -33,7 +33,13 @@ class Adventure extends Component {
         {this.state.bookDataAdventure.map((bookObj) => {
           return (
             <div className="genre__card__wrapper" key={uniqid()}>
-              <img src={bookObj.volumeInfo.imageLinks.smallThumbnail} className="genre__card__img"></img>
+              <img
+                src={
+                  bookObj.volumeInfo.imageLinks?.smallThumbnail ||
+                  bookObj.volumeInfo.imageLinks?.thumbnail
+                }
+                className="genre__card__img"
+              ></img>
               <h3>{bookObj.volumeInfo.title}</h3>
               <p>{bookObj.volumeInfo.authors}</p>
               <h3>{`$ ${19.99}`}</h3>

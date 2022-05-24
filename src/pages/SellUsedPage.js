@@ -17,6 +17,18 @@ class SellUsedPage extends Component {
     });
   }
 
+  onRemove = (bookId) => {
+    axios
+      .delete(`http://localhost:5050/usedbook/${bookId}/`)
+      .then((response) => {
+        console.log(response);
+        const bookdata = this.state.bookdata.filter(
+          (book) => book.id !== bookId
+        );
+        this.setState({ bookdata: bookdata });
+      });
+  };
+
   render() {
     // console.log(this.state.bookdata)
     return (
@@ -35,7 +47,15 @@ class SellUsedPage extends Component {
                 <h3>{bookObj.name}</h3>
                 <p>{bookObj.author}</p>
                 <h3>{`$ ${bookObj.price}`}</h3>
-                <button className="btn">Add to cart</button>
+                <div className="btn__upload">
+                  {/* <button className="btn">Add to cart</button> */}
+                  <button
+                    className="btn__remove"
+                    onClick={() => this.onRemove(bookObj.id)}
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
             );
           })}

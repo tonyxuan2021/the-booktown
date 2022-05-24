@@ -1,4 +1,4 @@
-@use "../../styles/mixins" as *;
+@use "../../styles/mixins"as *;
 
 .checkout {
     &__title {
@@ -6,6 +6,7 @@
 
         @include tablet {
             margin-bottom: 3rem;
+            margin-top: 5rem;
         }
 
         @include desktop {
@@ -76,6 +77,20 @@
             // align-items: center;
             width: 50%;
         }
+
+        &__remove {
+            width: 50%;
+            padding: 5px 10px;
+            background-color: #e63946;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+            &:active {
+                box-shadow: 0 2px #666;
+                transform: translate(4px, 4px);
+            }
+        }
     }
 
     &__page__wrapper {
@@ -89,7 +104,7 @@
             justify-content: space-around;
         }
     }
-    
+
 }
 
 .order {
@@ -103,7 +118,7 @@
         padding: 1rem 2rem;
 
         @include tablet {
-            padding: 3rem 3rem 0 ;
+            padding: 3rem 3rem 0;
         }
     }
 
@@ -144,4 +159,3 @@
         font-size: 2rem;
     }
 }
-

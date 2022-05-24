@@ -4,12 +4,15 @@ import uniqid from "uniqid";
 import "./SearchPage.scss";
 import Loader from "../components/Loader/Loader";
 
+
+
 class SearchPage extends Component {
   state = {
     bookSearchData: [],
     loader: true,
   };
-
+  
+  
   componentDidMount() {
     axios
       .get(
@@ -24,6 +27,8 @@ class SearchPage extends Component {
   }
 
   render() {
+
+
     // console.log(this.state.bookSearchData);
 
     // console.log(this.props.match.params.query)
@@ -56,6 +61,7 @@ class SearchPage extends Component {
               </p>
               <h3>$19.99</h3>
               <button className="btn">Add to cart</button>
+
             </div>
           );
         })}
