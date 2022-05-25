@@ -27,8 +27,6 @@ class Upload extends Component {
           });
       });
 
-    // console.log(fd);
-
     e.target.reset();
   };
 
@@ -42,7 +40,6 @@ class Upload extends Component {
   };
 
   render() {
-    // console.log(this.state.selectedFile)
 
     return (
       <form className="upload__form" onSubmit={this.handleSubmitContinue}>

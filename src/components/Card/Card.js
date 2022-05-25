@@ -8,7 +8,6 @@ import CartContext from "../../CartContext";
 const Card = ({ dataObj, isbn }) => {
   const [imgUrl, setImgUrl] = useState("");
   const [data2, setData2] = useState("");
-  const [cart, setCart] = useState([]);
 
   const { addToCart } = useContext(CartContext);
 

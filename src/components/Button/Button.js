@@ -2,7 +2,6 @@ import React from "react";
 import "./Button.scss";
 
 const Button = ({ addToCart, dataObj, bookImgUrl }) => {
-  // console.log(addToCart)
   return (
     <div>
       <button

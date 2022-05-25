@@ -30,7 +30,6 @@ class SellUsedPage extends Component {
   };
 
   render() {
-    // console.log(this.state.bookdata)
     return (
       <div>
         <div className="upload__header">
@@ -48,7 +47,6 @@ class SellUsedPage extends Component {
                 <p>{bookObj.author}</p>
                 <h3>{`$ ${bookObj.price}`}</h3>
                 <div className="btn__upload">
-                  {/* <button className="btn">Add to cart</button> */}
                   <button
                     className="btn__remove"
                     onClick={() => this.onRemove(bookObj.id)}

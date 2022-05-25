@@ -1,12 +1,11 @@
 import "../App.scss";
-import React, { Component, useContext } from "react";
+import React, { Component } from "react";
 import Hero from "../components/Hero/Hero";
 import Category from "../components/Category/Category";
 import Card from "../components/Card/Card";
 import axios from "axios";
 import "../components/Card/Card.scss";
 import uniqid from "uniqid";
-import Header from "../components/Header/Header";
 import Loader from "../components/Loader/Loader";
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
@@ -25,7 +24,6 @@ class HomePage extends Component {
         `https://api.nytimes.com/svc/books/v3/lists.json?api-key=${API_KEY_NYT}&list=Combined Print and E-Book Fiction`
       )
       .then((data) => {
-        // console.log("book", data);
         this.setState({
           bookData: data.data.results,
           selectedBook: data.data.results[0],
