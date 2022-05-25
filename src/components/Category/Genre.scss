@@ -1,24 +1,26 @@
-@use "../../styles/mixins" as *;
+@use "../../styles/mixins"as *;
 
 
 .genre {
     &__wrapper {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem 3rem;
-            justify-content: center;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 3rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 5rem;
+
+        @include tablet {
+            margin-top: 5rem;
+            flex-direction: row;
             align-items: center;
-            text-align: center;
-            gap: 5rem;
-        
-            @include tablet {
-                margin-top: 5rem;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-around;
-                flex-wrap: wrap;
-                gap: 0;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 0;
         }
+
+
     }
 
     &__card__wrapper {
@@ -42,6 +44,7 @@
         @include desktop {
             margin-bottom: 4rem;
             width: 20%;
+            height: 450px;
         }
     }
 
@@ -65,15 +68,15 @@
         transition: 0.3s;
         width: 9rem;
         cursor: pointer;
-    
+
         &:hover {
-        background-color: #b5e48c;
+            background-color: #b5e48c;
         }
-    
+
         &:active {
-        // background-color: #3e8e41;
-        box-shadow: 0 2px #666;
-        transform: translate(4px,4px);
+            // background-color: #3e8e41;
+            box-shadow: 0 2px #666;
+            transform: translate(4px, 4px);
         }
     }
 }
