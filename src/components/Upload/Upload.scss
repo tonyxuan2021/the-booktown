@@ -1,4 +1,4 @@
-@use "../../styles/mixins" as *;
+@use "../../styles/mixins"as *;
 
 .upload {
 
@@ -9,12 +9,24 @@
         flex-direction: column;
         gap: 1.5rem;
 
-    @include tablet {
-        margin-top: 5rem;
-    }
+        @include tablet {
+            margin-top: 5rem;
+            border: 1px solid grey;
+            margin: 8rem;
+            padding: 5rem;
+            gap: 2rem;
+        }
+
+        @include desktop {
+            margin: 8rem 16rem;
+            // padding: 10rem;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 
-    &__info__wrapper{
+    &__info__wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -27,5 +39,18 @@
     &__input {
         width: 60%;
     }
-}
 
+    &__continue {
+
+
+        @include tablet {
+            margin-top: 8rem;
+            width: 20%;
+            align-self: flex-end;
+        }
+
+        @include desktop {
+            margin-top: 0;
+        }
+    }
+}

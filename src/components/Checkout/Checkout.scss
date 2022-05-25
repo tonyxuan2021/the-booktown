@@ -47,6 +47,10 @@
             @include tablet {
                 justify-content: space-around;
             }
+
+            @include desktop {
+                gap: 5rem;
+            }
         }
 
         &__name {

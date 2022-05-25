@@ -18,7 +18,6 @@ class Upload extends Component {
         name: e.target.name.value,
         price: e.target.price.value,
         filepathUrl: e.target.file.files[0].name,
-        // image: fd
       })
       .then((response) => {
         axios
@@ -59,12 +58,6 @@ class Upload extends Component {
           </label>
           <input id="price" className="upload__input" />
         </div>
-        {/* <div className="upload__info__wrapper">
-          <label className="upload__label" htmlFor="city">
-            City of neighborhood
-          </label>
-          <input id="city" className="upload__input" />
-        </div> */}
         <div className="upload__info__wrapper">
           <label className="upload__label" htmlFor="file">
             Image
@@ -76,9 +69,6 @@ class Upload extends Component {
             className="upload__input"
           />
         </div>
-        {/* <button onClick={this.fileUploadHandler} className="upload__btn">
-          Add Image
-        </button> */}
         <button className="upload__continue">Continue</button>
       </form>
     );

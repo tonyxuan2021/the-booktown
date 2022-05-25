@@ -4,22 +4,9 @@ import uniqid from "uniqid";
 import "./Checkout.scss";
 import StripeCheckout from "react-stripe-checkout";
 
-// console.log(process.env.REACT_APP_STRIPE_SECRET_KEY)
-
 const Checkout = () => {
   const { items } = useContext(CartContext);
-
-  const onRemove = (name) => {
-    const exist = items.find((matchedBook) => {
-      return matchedBook.name === name;
-    });
-
-    if (exist) {
-      items = items.filter((matchedBook) => {
-        return matchedBook.name !== exist.name;
-      }) 
-    }
-  };
+  const { removeFromCart } = useContext(CartContext);
 
   const itemPrice = parseFloat(
     items.reduce((a, c) => a + c.price, 0).toFixed(2)
@@ -69,7 +56,7 @@ const Checkout = () => {
                   <h3 className="checkout__book__price">{`$ ${item.price}`}</h3>
                   <button
                     className="checkout__book__remove"
-                    onClick={() => onRemove(item.name)}
+                    onClick={() => removeFromCart(item.name)}
                   >
                     REMOVE
                   </button>

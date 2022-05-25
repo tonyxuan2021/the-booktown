@@ -3,7 +3,7 @@
 
 .header {
     &__wrapper {
-        padding: 1rem 2rem;
+        padding: 1rem 2rem 0 2rem;
         // position: fixed;
         // top: 0;
         // width: 100%;
@@ -109,6 +109,7 @@
         gap: 2rem;
         justify-content: space-between;
         // width: 100%;
+        
 
         @include tablet {
             flex-direction: column;
@@ -128,13 +129,42 @@
         text-decoration: none;
         color: black;
     }
+
+    &__search {
+        
+        @include desktop {
+            width: 20%;
+            font-size: 1.6rem;
+        }
+    }
+
+    &__banner {
+        width: 100%;
+        height: 100%;
+        background-color: gray;
+        color: white;
+        text-align: center;
+        padding: 1rem 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet {
+            height: 6vh;
+        }
+
+        @include desktop {
+            height: 7vh;
+        }
+    }
 }
 
 .search{
     &__form__wrapper {
         display: flex;
         position: relative;
-        margin-bottom: 2rem;
+        // margin-bottom: 2rem;
 
         @include tablet {
             margin: 0;
@@ -154,8 +184,8 @@
         font-family: "Montserrat",Helvetica,Arial,Verdana,sans-serif;
 
         @include desktop {
-            height: 7vh;
-            font-size: 2.4rem;
+            // height: 7vh;
+            font-size: 2.0rem;
         }
 
     &:hover, &:focus {
