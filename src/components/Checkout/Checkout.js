@@ -87,7 +87,7 @@ const Checkout = () => {
           <StripeCheckout
             stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
             token={makePayment}
-            name="Buy books"
+            name="Enter your shipping info"
             amount={totalPrice * 100}
             shippingAddress
             billingAddress
