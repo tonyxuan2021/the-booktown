@@ -73,7 +73,7 @@ const Checkout = () => {
           </div>
           <div className="order__shipping">
             <p>Shipping</p>
-            <p>{shippingPrice}</p>
+            <p>{itemPrice ? shippingPrice : 0}</p>
           </div>
           <div className="order__tax">
             <p>Tax (12% - British Columbia)</p>
@@ -81,7 +81,7 @@ const Checkout = () => {
           </div>
           <div className="order__total__wrapper">
             <h3 className="order__total">Total</h3>
-            <h3 className="order__total__amt">{totalPrice}</h3>
+            <h3 className="order__total__amt">{itemPrice ? totalPrice : 0}</h3>
           </div>
 
           <StripeCheckout
@@ -93,7 +93,7 @@ const Checkout = () => {
             billingAddress
           >
             <button className="order__button">
-              Ready to Checkout ${totalPrice}
+              Ready to Checkout ${itemPrice ? totalPrice : 0}
             </button>
           </StripeCheckout>
         </div>
