@@ -40,6 +40,8 @@ class HomePage extends Component {
       );
     }
 
+    console.log(this.state.bookData);
+
     return (
       <div>
         <Hero />
