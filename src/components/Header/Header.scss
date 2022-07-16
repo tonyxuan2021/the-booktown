@@ -1,14 +1,34 @@
-@use "../../styles/mixins" as *;
+@use "../../styles/mixins"as *;
 
 
 .header {
+
+    &__search__btn {
+        @include desktop {
+            width: 20% !important;
+        }
+    }
+
+    &__final {
+        @include desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__box {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @include desktop {
+            width: 60%;
+        }
+    }
+
     &__wrapper {
         padding: 1rem 2rem 0 2rem;
-        // position: fixed;
-        // top: 0;
-        // width: 100%;
-        // background-color: #009688;
-        // height: 50px;
+
 
         @include tablet {
             display: flex;
@@ -64,8 +84,8 @@
             gap: 3rem;
 
             @include tablet {
-            flex-direction: column;
-            gap: 1rem;
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
@@ -81,25 +101,25 @@
 
     &__cart {
 
-    position: relative;
+        position: relative;
 
-    &__num {
-        font-size: 1.5rem;
-        background: #ff0000;
-        color: #fff;
-        padding: 0 5px;
-        vertical-align: top;
-        margin-left: -10px; 
-        border-radius: 50%;
-        position: absolute;
-        top: -9px;
-        right: -10px;
+        &__num {
+            font-size: 1.5rem;
+            background: #ff0000;
+            color: #fff;
+            padding: 0 5px;
+            vertical-align: top;
+            margin-left: -10px;
+            border-radius: 50%;
+            position: absolute;
+            top: -9px;
+            right: -10px;
 
-        @include desktop {
-        right: -5px;
+            @include desktop {
+                right: -5px;
 
+            }
         }
-    }
     }
 
     &__bar {
@@ -109,7 +129,7 @@
         gap: 2rem;
         justify-content: space-between;
         // width: 100%;
-        
+
 
         @include tablet {
             flex-direction: column;
@@ -131,7 +151,7 @@
     }
 
     &__search {
-        
+
         @include desktop {
             width: 20%;
             font-size: 1.6rem;
@@ -160,7 +180,7 @@
     }
 }
 
-.search{
+.search {
     &__form__wrapper {
         display: flex;
         position: relative;
@@ -181,17 +201,18 @@
         padding: 2px 23px 2px 30px;
         // outline: 0;
         background-color: #F8F9FA;
-        font-family: "Montserrat",Helvetica,Arial,Verdana,sans-serif;
+        font-family: "Montserrat", Helvetica, Arial, Verdana, sans-serif;
 
         @include desktop {
             // height: 7vh;
             font-size: 2.0rem;
         }
 
-    &:hover, &:focus {
-        border: 1.5px solid #009688;
-        background-color: white;
-    }
+        &:hover,
+        &:focus {
+            border: 1.5px solid #009688;
+            background-color: white;
+        }
     }
 
     &__icon {

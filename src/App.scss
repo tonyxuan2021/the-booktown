@@ -1,1 +1,5 @@
 @use "./styles/global" as *;
+
+.swiper-button-next, .swiper-button-prev {
+    display: none !important;
+}
