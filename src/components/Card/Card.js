@@ -4,6 +4,7 @@ import "./Card.scss";
 import axios from "axios";
 import Rating from "../Rating/Rating";
 import CartContext from "../../CartContext";
+import { Link } from "react-router-dom";
 
 const Card = ({ dataObj, isbn }) => {
   const [imgUrl, setImgUrl] = useState("");
@@ -34,12 +35,16 @@ const Card = ({ dataObj, isbn }) => {
 
   return (
     <div className="card__wrapper">
-      <img src={imgUrl} className="card__img"></img>
+      <Link to={`/single/${isbn}`}>
+        <img src={imgUrl} className="card__img"></img>
+      </Link>
       <p className="card__name">{dataObj.title}</p>
       <p className="card__author">{dataObj.author}</p>
 
       <p className="card__price">
-        {`$ ${dataObj.price === "0.00" ? dataObj.price = 19.99 : dataObj.price}`}
+        {`$ ${
+          dataObj.price === "0.00" ? (dataObj.price = 19.99) : dataObj.price
+        }`}
       </p>
       <div className="card__review__wrapper">
         <Rating value={ratingScore} text={ratingCount} />

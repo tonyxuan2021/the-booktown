@@ -15,6 +15,7 @@ import Business from "./components/Category/Business";
 import Child from "./components/Category/Child";
 import Fantasy from "./components/Category/Fantasy";
 import Romance from "./components/Category/Romance";
+import SingleBook from "./pages/SingleBook";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/single/:id" component={SingleBook} />
             <Route path="/search/:query" component={SearchPage} />
             <Route path="/horror" component={Horror} />
             <Route path="/food" component={Food} />
