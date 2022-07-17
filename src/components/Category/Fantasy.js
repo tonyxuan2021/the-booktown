@@ -4,6 +4,7 @@ import uniqid from "uniqid";
 import axios from "axios";
 import Loader from "../Loader/Loader";
 import CartContext from "../../CartContext";
+import { Link } from "react-router-dom";
 
 const Fantasy = () => {
   const [bookDataAdventure, setBookDataAdventure] = useState([]);
@@ -32,13 +33,17 @@ const Fantasy = () => {
         const { volumeInfo } = bookObj;
         return (
           <div className="genre__card__wrapper" key={uniqid()}>
-            <img
-              src={
-                bookObj.volumeInfo.imageLinks?.smallThumbnail ||
-                bookObj.volumeInfo.imageLinks?.thumbnail
-              }
-              className="genre__card__img"
-            ></img>
+            <Link
+              to={`/single/${volumeInfo.industryIdentifiers[1].identifier}`}
+            >
+              <img
+                src={
+                  bookObj.volumeInfo.imageLinks?.smallThumbnail ||
+                  bookObj.volumeInfo.imageLinks?.thumbnail
+                }
+                className="genre__card__img"
+              ></img>
+            </Link>
             <h3>{bookObj.volumeInfo.title}</h3>
             <p>{bookObj.volumeInfo.authors}</p>
             <h3>{`$ ${19.99}`}</h3>

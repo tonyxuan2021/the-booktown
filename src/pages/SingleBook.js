@@ -1,8 +1,9 @@
 import { Button, Divider, Grid, Rating, Typography } from "@mui/material";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import CartContext from "../CartContext";
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 const googleBookIdUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
@@ -19,6 +20,7 @@ const SingleBook = () => {
   const { id } = useParams();
   const [singleBook, setSingleBook] = useState({});
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     axios.get(`${googleBookIdUrl}${id}`).then((data) => {
@@ -97,6 +99,14 @@ const SingleBook = () => {
             variant="contained"
             sx={{ background: "black", mb: 2 }}
             fullWidth
+            onClick={() => {
+              addToCart(
+                title,
+                19.99,
+                singleBook.imageLinks.smallThumbnail,
+                singleBook.authors[0]
+              );
+            }}
           >
             ADD TO CART
           </Button>
