@@ -46,10 +46,7 @@ const SingleBook = () => {
       sx={styles.container}
     >
       <Grid item xs={4}>
-        <img
-          style={{ width: 380 }}
-          src={singleBook.imageLinks.smallThumbnail}
-        ></img>
+        <img style={{ width: 380 }} src={singleBook.imageLinks.thumbnail}></img>
       </Grid>
       <Grid item xs={6}>
         <Typography variant="h2" fontWeight={500} sx={{ mb: 3 }}>
