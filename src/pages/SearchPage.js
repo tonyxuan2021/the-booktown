@@ -1,65 +1,72 @@
-import React, { Component } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import uniqid from "uniqid";
 import "./SearchPage.scss";
 import Loader from "../components/Loader/Loader";
+import { useParams } from "react-router-dom";
+import CartContext from "../CartContext";
 
-class SearchPage extends Component {
-  state = {
-    bookSearchData: [],
-    loader: true,
-  };
+const SearchPage = () => {
+  const { query } = useParams();
 
-  componentDidMount() {
+  const { addToCart } = useContext(CartContext);
+
+  const [bookSearchData, setBookSearchDate] = useState([]);
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
     axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=intitle:${this.props.match.params.query}`
-      )
+      .get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${query}`)
       .then((response) => {
-        this.setState({
-          bookSearchData: response.data.items,
-          loader: false,
-        });
+        setBookSearchDate(response.data.items);
+        setLoader(false);
       });
-  }
+  }, []);
 
-  render() {
-
-    if (this.state.bookSearchData.length === 0) {
-      return (
-        <section>
-          <Loader>Loading...</Loader>
-        </section>
-      );
-    }
-
+  if (bookSearchData.length === 0) {
     return (
-      <div className="search__wrapper">
-        {this.state.bookSearchData.map((bookObj) => {
-          return (
-            <div className="search__card__wrapper" key={uniqid()}>
-              <img
-                src={
-                  bookObj.volumeInfo.imageLinks
-                    ? bookObj.volumeInfo.imageLinks.smallThumbnail
-                    : "https://picsum.photos/128/195"
-                }
-                className="search__card__img"
-              ></img>
-              <h3>{bookObj.volumeInfo.title}</h3>
-              <p>
-                {bookObj.volumeInfo.authors
-                  ? bookObj.volumeInfo.authors[0]
-                  : ""}
-              </p>
-              <h3>$19.99</h3>
-              <button className="btn">Add to cart</button>
-            </div>
-          );
-        })}
-      </div>
+      <section>
+        <Loader>Loading...</Loader>
+      </section>
     );
   }
-}
+
+  return (
+    <div className="search__wrapper">
+      {bookSearchData.map((bookObj) => {
+        return (
+          <div className="search__card__wrapper" key={uniqid()}>
+            <img
+              src={
+                bookObj.volumeInfo.imageLinks
+                  ? bookObj.volumeInfo.imageLinks.smallThumbnail
+                  : "https://picsum.photos/128/195"
+              }
+              className="search__card__img"
+            ></img>
+            <h3>{bookObj.volumeInfo.title}</h3>
+            <p>
+              {bookObj.volumeInfo.authors ? bookObj.volumeInfo.authors[0] : ""}
+            </p>
+            <h3>$19.99</h3>
+            <button
+              onClick={() => {
+                addToCart(
+                  bookObj.volumeInfo.title,
+                  19.99,
+                  bookObj.volumeInfo.imageLinks.smallThumbnail,
+                  bookObj.volumeInfo.authors[0]
+                );
+              }}
+              className="btn"
+            >
+              Add to cart
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default SearchPage;
