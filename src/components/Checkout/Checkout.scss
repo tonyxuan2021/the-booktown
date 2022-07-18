@@ -120,6 +120,7 @@
         display: flex;
         flex-direction: column;
         padding: 1rem 2rem;
+        background: rgba(245, 242, 233, 0.701961);
 
         @include tablet {
             padding: 3rem 3rem 0;
@@ -161,5 +162,11 @@
         margin-bottom: 2rem;
         background-color: #b5e48c;
         font-size: 2rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: transparent;
+            color: #666
+        }
     }
 }

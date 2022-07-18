@@ -3,6 +3,7 @@ import CartContext from "../../CartContext";
 import uniqid from "uniqid";
 import "./Checkout.scss";
 import StripeCheckout from "react-stripe-checkout";
+import { Button } from "@mui/material";
 
 const Checkout = () => {
   const { items } = useContext(CartContext);
@@ -91,6 +92,7 @@ const Checkout = () => {
             amount={totalPrice * 100}
             shippingAddress
             billingAddress
+            style={{ margin: 0 }}
           >
             <button className="order__button">
               Ready to Checkout ${itemPrice ? totalPrice : 0}
