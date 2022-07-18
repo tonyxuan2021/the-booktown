@@ -4,6 +4,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import CartContext from "../CartContext";
+import Loader from "../components/Loader/Loader";
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 const googleBookIdUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
@@ -12,7 +13,6 @@ const styles = {
   container: {
     ml: "10rem",
     mt: "3rem",
-    // mr: "16rem"
   },
 };
 
@@ -30,7 +30,11 @@ const SingleBook = () => {
   }, {});
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <section>
+        <Loader>Loading...</Loader>
+      </section>
+    );
   }
 
   console.log(singleBook);

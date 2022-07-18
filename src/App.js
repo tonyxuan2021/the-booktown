@@ -6,17 +6,10 @@ import { CartProvider } from "./CartContext";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Upload from "./components/Upload/Upload";
-import Horror from "./components/Category/Horror";
-import Food from "./components/Category/Food";
-import Adventure from "./components/Category/Adventure";
-import Travel from "./components/Category/Travel";
 import SearchPage from "./pages/SearchPage";
-import Business from "./components/Category/Business";
-import Child from "./components/Category/Child";
-import Fantasy from "./components/Category/Fantasy";
-import Romance from "./components/Category/Romance";
 import SingleBook from "./pages/SingleBook";
 import Error from "./pages/Error";
+import CategoryItems from "./components/Category/CategoryItems";
 
 function App() {
   return (
@@ -28,14 +21,54 @@ function App() {
             <Route path="/" exact component={HomePage} />
             <Route path="/single/:id" component={SingleBook} />
             <Route path="/search/:query" component={SearchPage} />
-            <Route path="/horror" component={Horror} />
-            <Route path="/food" component={Food} />
-            <Route path="/adventure" component={Adventure} />
-            <Route path="/business" component={Business} />
-            <Route path="/child" component={Child} />
-            <Route path="/fantasy" component={Fantasy} />
-            <Route path="/romance" component={Romance} />
-            <Route path="/travel" component={Travel} />
+            <Route
+              path="/horror"
+              component={(props) => (
+                <CategoryItems {...props} category="horror" />
+              )}
+            />
+            <Route
+              path="/food"
+              component={(props) => (
+                <CategoryItems {...props} category="food" />
+              )}
+            />
+            <Route
+              path="/adventure"
+              component={(props) => (
+                <CategoryItems {...props} category="advanture" />
+              )}
+            />
+            <Route
+              path="/business"
+              component={(props) => (
+                <CategoryItems {...props} category="business" />
+              )}
+            />
+            <Route
+              path="/child"
+              component={(props) => (
+                <CategoryItems {...props} category="child" />
+              )}
+            />
+            <Route
+              path="/fantasy"
+              component={(props) => (
+                <CategoryItems {...props} category="fantasy" />
+              )}
+            />
+            <Route
+              path="/romance"
+              component={(props) => (
+                <CategoryItems {...props} category="romance" />
+              )}
+            />
+            <Route
+              path="/travel"
+              component={(props) => (
+                <CategoryItems {...props} category="travel" />
+              )}
+            />
             <Route path="/checkout" component={Checkout} />
             <Route path="/used" exact component={SellUsedPage} />
             <Route path="/used/upload" component={Upload} />

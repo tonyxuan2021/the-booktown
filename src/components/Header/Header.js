@@ -35,8 +35,6 @@ const Header = () => {
       });
   };
 
-  console.log(error);
-
   if (!booksData) {
     return <Error />;
   }
