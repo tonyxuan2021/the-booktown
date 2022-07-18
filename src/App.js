@@ -16,6 +16,7 @@ import Child from "./components/Category/Child";
 import Fantasy from "./components/Category/Fantasy";
 import Romance from "./components/Category/Romance";
 import SingleBook from "./pages/SingleBook";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/checkout" component={Checkout} />
             <Route path="/used" exact component={SellUsedPage} />
             <Route path="/used/upload" component={Upload} />
+            <Route path="*" component={Error} />
           </Switch>
           <Footer />
         </BrowserRouter>

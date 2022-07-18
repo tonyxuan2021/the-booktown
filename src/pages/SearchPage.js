@@ -21,7 +21,7 @@ const SearchPage = () => {
         setBookSearchDate(response.data.items);
         setLoader(false);
       });
-  }, []);
+  }, [query]);
 
   if (bookSearchData.length === 0) {
     return (
@@ -37,7 +37,7 @@ const SearchPage = () => {
         return (
           <div className="search__card__wrapper" key={uniqid()}>
             <Link
-              to={`/single/${bookObj.volumeInfo.industryIdentifiers[1].identifier}`}
+              to={`/single/${bookObj.volumeInfo.industryIdentifiers[0].identifier}`}
             >
               <img
                 src={

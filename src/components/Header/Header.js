@@ -12,23 +12,34 @@ import Slider from "../Slider/Slider";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button, TextField, InputProps } from "@mui/material";
 import { Box } from "@mui/system";
+import Error from "../../pages/Error";
 
 const Header = () => {
   const { items } = useContext(CartContext);
   const [booksData, setBooksData] = useState([]);
   const [search, setSearch] = useState("");
+  const [error, setError] = useState(false);
 
   let history = useHistory();
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${search}`)
       .then((data) => {
         setBooksData(data);
         history.push(`/search/${search}`);
+      })
+      .catch(() => {
+        setError(true);
       });
-    e.target.reset();
   };
+
+  console.log(error);
+
+  if (!booksData) {
+    return <Error />;
+  }
 
   return (
     <div>
