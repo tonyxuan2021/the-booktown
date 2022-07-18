@@ -33,9 +33,11 @@ const Horror = () => {
         const { volumeInfo } = bookObj;
         return (
           <div className="genre__card__wrapper" key={uniqid()}>
-            <Link
-              to={`/single/${volumeInfo.industryIdentifiers[1].identifier}`}
-            >
+            {/* <Link
+              to={`/single/${
+                volumeInfo.industryIdentifiers[0].identifier
+              }` || `/single/9780316258678`}
+            > */}
               <img
                 src={
                   bookObj.volumeInfo.imageLinks?.smallThumbnail ||
@@ -43,7 +45,7 @@ const Horror = () => {
                 }
                 className="genre__card__img"
               ></img>
-            </Link>
+            {/* </Link> */}
             <h3>{bookObj.volumeInfo.title}</h3>
             <p>{bookObj.volumeInfo.authors}</p>
             <h3>{`$ ${19.99}`}</h3>

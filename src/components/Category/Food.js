@@ -34,7 +34,7 @@ const Food = () => {
         return (
           <div className="genre__card__wrapper" key={uniqid()}>
             <Link
-              to={`/single/${volumeInfo.industryIdentifiers[1].identifier}`}
+              to={`/single/${volumeInfo.industryIdentifiers[0].identifier}`}
             >
               <img
                 src={

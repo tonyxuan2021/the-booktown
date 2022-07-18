@@ -31,11 +31,16 @@ const Romance = () => {
     <div className="genre__wrapper">
       {bookDataAdventure.map((bookObj) => {
         const { volumeInfo } = bookObj;
+        console.log(volumeInfo.industryIdentifiers);
         return (
           <div className="genre__card__wrapper" key={uniqid()}>
-            <Link
-              to={`/single/${volumeInfo.industryIdentifiers[1].identifier}`}
-            >
+            {/* <Link
+              to={`/single/${
+                volumeInfo.industryIdentifiers[0].identifier === undefined
+                  ? 9780316258678
+                  : volumeInfo.industryIdentifiers[0].identifier
+              }`}
+            > */}
               <img
                 src={
                   bookObj.volumeInfo.imageLinks?.smallThumbnail ||
@@ -43,7 +48,7 @@ const Romance = () => {
                 }
                 className="genre__card__img"
               ></img>
-            </Link>
+            {/* </Link> */}
             <h3>{bookObj.volumeInfo.title}</h3>
             <p>{bookObj.volumeInfo.authors}</p>
             <h3>{`$ ${19.99}`}</h3>

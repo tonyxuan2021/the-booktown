@@ -3,7 +3,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 import "./SearchPage.scss";
 import Loader from "../components/Loader/Loader";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CartContext from "../CartContext";
 
 const SearchPage = () => {
@@ -36,14 +36,18 @@ const SearchPage = () => {
       {bookSearchData.map((bookObj) => {
         return (
           <div className="search__card__wrapper" key={uniqid()}>
-            <img
-              src={
-                bookObj.volumeInfo.imageLinks
-                  ? bookObj.volumeInfo.imageLinks.smallThumbnail
-                  : "https://picsum.photos/128/195"
-              }
-              className="search__card__img"
-            ></img>
+            <Link
+              to={`/single/${bookObj.volumeInfo.industryIdentifiers[1].identifier}`}
+            >
+              <img
+                src={
+                  bookObj.volumeInfo.imageLinks
+                    ? bookObj.volumeInfo.imageLinks.smallThumbnail
+                    : "https://picsum.photos/128/195"
+                }
+                className="search__card__img"
+              ></img>
+            </Link>
             <h3>{bookObj.volumeInfo.title}</h3>
             <p>
               {bookObj.volumeInfo.authors ? bookObj.volumeInfo.authors[0] : ""}
