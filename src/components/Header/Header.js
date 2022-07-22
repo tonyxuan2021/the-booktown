@@ -49,7 +49,9 @@ const Header = () => {
             </Link>
             <div className="header--right__wrapper">
               <div className="header--top">
-                <p>Login</p>
+                <Link to="/signin">
+                  <p>Login</p>
+                </Link>
                 <FontAwesomeIcon icon={faUser} />
               </div>
               <div className="header--btm">

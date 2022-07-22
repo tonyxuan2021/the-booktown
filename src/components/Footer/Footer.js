@@ -8,15 +8,15 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer__social__wrapper">
+      {/* <div className="footer__social__wrapper">
         <FontAwesomeIcon icon={faFacebook} />
         <FontAwesomeIcon icon={faInstagram} />
         <FontAwesomeIcon icon={faTwitter} />
-      </div>
+      </div> */}
 
-      <p className="footer__copyright">
+      {/* <p className="footer__copyright">
         © {new Date().getFullYear()} Copyright: The BookTown
-      </p>
+      </p> */}
     </div>
   );
 };

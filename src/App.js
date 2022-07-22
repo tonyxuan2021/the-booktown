@@ -10,6 +10,8 @@ import SearchPage from "./pages/SearchPage";
 import SingleBook from "./pages/SingleBook";
 import Error from "./pages/Error";
 import CategoryItems from "./components/Category/CategoryItems";
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/signin" component={Signin} />
+            <Route path="/signup" component={Signup} />
             <Route path="/single/:id" component={SingleBook} />
             <Route path="/search/:query" component={SearchPage} />
             <Route
