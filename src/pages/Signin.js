@@ -14,10 +14,11 @@ const Signin = () => {
   const handleSubmit = () => {
     axios
       .post(`${API_URL_LOGIN}`, {
-        email,
-        password,
+        email: email,
+        password: password,
       })
       .then((res) => {
+        console.log(res)
         sessionStorage.setItem("token", res.data.token);
         setSuccess(true);
       })
