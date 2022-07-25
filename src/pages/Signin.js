@@ -2,6 +2,7 @@ import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { API_URL_LOGIN } from "../config/index";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const Signin = () => {
   console.log(email, password);
   const handleSubmit = () => {
     axios
-      .post("http://localhost:8080/api/users/login", {
+      .post(`${API_URL_LOGIN}`, {
         email,
         password,
       })
@@ -26,7 +27,12 @@ const Signin = () => {
   };
 
   return (
-    <Box display="flex" sx={{ mt: 8 }} flexDirection="column" alignItems="center">
+    <Box
+      display="flex"
+      sx={{ mt: 8 }}
+      flexDirection="column"
+      alignItems="center"
+    >
       <Paper sx={{ height: 330, width: 250 }} elevation={5}>
         <Typography variant="h5" textAlign="center" sx={{ mt: 2 }}>
           SIGN IN TO YOUR BOOK TOWN ACCOUNT

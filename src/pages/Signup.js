@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL_REGISTER } from "../config/index";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ const Signup = () => {
   const [error, setError] = useState(null);
   const handleSubmit = () => {
     axios
-      .post("http://localhost:8080/api/users/register", {
+      .post(`${API_URL_REGISTER}`, {
         email: email,
         password: password,
       })
