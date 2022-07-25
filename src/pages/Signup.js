@@ -6,10 +6,27 @@ import {
   Divider,
   Checkbox,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(null);
+  const handleSubmit = () => {
+    axios
+      .post("http://localhost:8080/api/users/register", {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        setSuccess(true);
+      })
+      .catch((err) => {});
+  };
+
   return (
     <Box display="flex" justifyContent="center" sx={{ mt: 8 }}>
       <Box sx={{ height: 330, width: 550 }} elevation={5}>
@@ -29,6 +46,8 @@ const Signup = () => {
             fullWidth
             required
             autoFocus
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           ></TextField>
           <Typography variant="h6">password</Typography>
           <TextField
@@ -40,6 +59,8 @@ const Signup = () => {
             fullWidth
             required
             autoFocus
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           ></TextField>
           <Typography>Forgot your password?</Typography>
           <Box display="flex" justifyContent="flex-end">
@@ -47,6 +68,7 @@ const Signup = () => {
               variant="contained"
               fullWidth
               sx={{ height: 40, width: 200, mb: 2 }}
+              onClick={handleSubmit}
             >
               <Typography variant="h5">CONTINUE</Typography>
             </Button>
