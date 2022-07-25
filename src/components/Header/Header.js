@@ -49,7 +49,7 @@ const Header = () => {
             </Link>
             <div className="header--right__wrapper">
               <div className="header--top">
-                <Link to="/signin">
+                <Link to="/signin" className="header__link">
                   <p>Login</p>
                 </Link>
                 <FontAwesomeIcon icon={faUser} />
