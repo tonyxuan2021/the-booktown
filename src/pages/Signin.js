@@ -18,7 +18,7 @@ const Signin = () => {
         password: password,
       })
       .then((res) => {
-        console.log(res)
+        console.log(res);
         sessionStorage.setItem("token", res.data.token);
         setSuccess(true);
       })
@@ -34,7 +34,7 @@ const Signin = () => {
       flexDirection="column"
       alignItems="center"
     >
-      <Paper sx={{ height: 330, width: 250 }} elevation={5}>
+      <Paper sx={{ height: 350, width: 280 }} elevation={5}>
         <Typography variant="h5" textAlign="center" sx={{ mt: 2 }}>
           SIGN IN TO YOUR BOOK TOWN ACCOUNT
         </Typography>
@@ -44,6 +44,7 @@ const Signin = () => {
             inputProps={{
               style: {
                 padding: 8,
+                fontSize: 15,
               },
             }}
             sx={{ p: 0 }}
@@ -60,11 +61,11 @@ const Signin = () => {
             inputProps={{
               style: {
                 padding: 8,
+                fontSize: 15,
               },
             }}
             fullWidth
             required
-            autoFocus
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
@@ -79,8 +80,10 @@ const Signin = () => {
           >
             <Typography variant="h5">SIGN IN</Typography>
           </Button>
-          <Typography textAlign="center">
-            <Link to="/signup">Don't have an account? Create one now</Link>
+          <Typography textAlign="center" variant="h5">
+            <Link style={{ color: "black" }} to="/signup">
+              Don't have an account? Create one now
+            </Link>
           </Typography>
         </Box>
       </Paper>

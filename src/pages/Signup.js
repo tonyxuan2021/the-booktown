@@ -52,6 +52,7 @@ const Signup = () => {
             inputProps={{
               style: {
                 padding: 8,
+                fontSize: 15,
               },
             }}
             sx={{ p: 0 }}
@@ -66,6 +67,7 @@ const Signup = () => {
             inputProps={{
               style: {
                 padding: 8,
+                fontSize: 15,
               },
             }}
             fullWidth
@@ -98,7 +100,7 @@ const Signup = () => {
               and more. You may unsubscribe at any time.
             </Typography>
           </Box>
-          <Typography textAlign="center">
+          <Typography textAlign="center" variant="h5">
             <Link to="/signin">Already have an account? Sign In</Link>
           </Typography>
         </Box>

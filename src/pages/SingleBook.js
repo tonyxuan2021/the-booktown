@@ -98,7 +98,7 @@ const SingleBook = () => {
         >
           <Button
             variant="contained"
-            sx={{ background: "black", mb: 2 }}
+            sx={{ background: "black", mb: 2, height:40 }}
             fullWidth
             onClick={() => {
               addToCart(

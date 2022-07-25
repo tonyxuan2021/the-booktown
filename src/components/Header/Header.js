@@ -94,7 +94,7 @@ const Header = () => {
             endIcon={
               <SearchIcon
                 sx={{
-                  color: "black",
+                  color: "white",
                   transform: "scale(1.2)",
                 }}
               />
@@ -102,8 +102,8 @@ const Header = () => {
             sx={{
               width: "30%",
               height: "100%",
-              background: "#b5e48c",
-              "&:hover": { background: "#C7F9CC" },
+              background: "black",
+              "&:hover": { background: "grey" },
             }}
           ></Button>
         </Box>
