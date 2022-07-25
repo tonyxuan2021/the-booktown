@@ -16,6 +16,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
+
   const handleSubmit = () => {
     axios
       .post(`${API_URL_REGISTER}`, {
@@ -24,12 +25,22 @@ const Signup = () => {
       })
       .then((res) => {
         setSuccess(true);
+        setError("");
       })
-      .catch((err) => {});
+      .catch((error) => {
+        setSuccess(false);
+        setError(error.response.data);
+      });
   };
 
   return (
-    <Box display="flex" justifyContent="center" sx={{ mt: 8 }}>
+    <Box
+      display="flex"
+      justifyContent="center"
+      sx={{ mt: 8 }}
+      flexDirection="column"
+      alignItems="center"
+    >
       <Box sx={{ height: 330, width: 550 }} elevation={5}>
         <Typography variant="h5" textAlign="center" sx={{ mt: 2, mb: 3 }}>
           SET YOUR EMAIL AND PASSWORD
@@ -92,6 +103,8 @@ const Signup = () => {
           </Typography>
         </Box>
       </Box>
+      {success && <div className="signup__notice">Signed up!</div>}
+      {error && <div className="signup__notice">{error}</div>}
     </Box>
   );
 };
