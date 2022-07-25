@@ -1,10 +1,8 @@
 import {
   Box,
   Button,
-  Paper,
   TextField,
   Typography,
-  InputProps,
   Divider,
   Checkbox,
 } from "@mui/material";

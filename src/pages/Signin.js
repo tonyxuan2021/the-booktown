@@ -1,17 +1,32 @@
-import {
-  Box,
-  Button,
-  Paper,
-  TextField,
-  Typography,
-  InputProps,
-} from "@mui/material";
-import React from "react";
-import { Link } from "react-router-dom";
+import { Box, Button, Paper, TextField, Typography } from "@mui/material";
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
 
 const Signin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(null);
+
+  console.log(email, password);
+  const handleSubmit = () => {
+    axios
+      .post("http://localhost:8080/api/users/login", {
+        email,
+        password,
+      })
+      .then((res) => {
+        sessionStorage.setItem("token", res.data.token);
+        setSuccess(true);
+      })
+      .catch((err) => {
+        setError(err.response.data);
+      });
+  };
+
   return (
-    <Box display="flex" justifyContent="center" sx={{ mt: 8 }}>
+    <Box display="flex" sx={{ mt: 8 }} flexDirection="column" alignItems="center">
       <Paper sx={{ height: 330, width: 250 }} elevation={5}>
         <Typography variant="h5" textAlign="center" sx={{ mt: 2 }}>
           SIGN IN TO YOUR BOOK TOWN ACCOUNT
@@ -28,6 +43,10 @@ const Signin = () => {
             fullWidth
             required
             autoFocus
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           ></TextField>
           <Typography variant="h6">password</Typography>
           <TextField
@@ -39,9 +58,18 @@ const Signin = () => {
             fullWidth
             required
             autoFocus
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           ></TextField>
           <Typography>Forgot your password?</Typography>
-          <Button variant="contained" fullWidth sx={{ height: 40, mb: 2 }}>
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{ height: 40, mb: 2 }}
+            onClick={handleSubmit}
+          >
             <Typography variant="h5">SIGN IN</Typography>
           </Button>
           <Typography textAlign="center">
@@ -49,6 +77,8 @@ const Signin = () => {
           </Typography>
         </Box>
       </Paper>
+      {success && <Redirect to="/dashboard" />}
+      {error && <p>{error}</p>}
     </Box>
   );
 };

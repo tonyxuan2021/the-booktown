@@ -70,8 +70,8 @@ const Header = () => {
             <Link to="/" className="header__home">
               <p>Home</p>
             </Link>
-            <Link to="/used" className="header__used">
-              <p>Sell Used</p>
+            <Link to="/dashboard" className="header__used">
+              <p>Dashboard</p>
             </Link>
           </div>
         </div>

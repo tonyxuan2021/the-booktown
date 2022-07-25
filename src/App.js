@@ -12,6 +12,7 @@ import Error from "./pages/Error";
 import CategoryItems from "./components/Category/CategoryItems";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" exact component={HomePage} />
             <Route path="/signin" component={Signin} />
             <Route path="/signup" component={Signup} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/single/:id" component={SingleBook} />
             <Route path="/search/:query" component={SearchPage} />
             <Route
