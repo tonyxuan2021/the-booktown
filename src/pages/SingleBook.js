@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import CartContext from "../CartContext";
 import Loader from "../components/Loader/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 const googleBookIdUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
@@ -21,6 +23,12 @@ const SingleBook = () => {
   const [singleBook, setSingleBook] = useState({});
   const [loading, setLoading] = useState(true);
   const { addToCart } = useContext(CartContext);
+
+  const notify = () =>
+    toast.success("Added to cart!", {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: 1000,
+    });
 
   useEffect(() => {
     axios.get(`${googleBookIdUrl}${id}`).then((data) => {
@@ -98,7 +106,7 @@ const SingleBook = () => {
         >
           <Button
             variant="contained"
-            sx={{ background: "black", mb: 2, height:40 }}
+            sx={{ background: "black", mb: 2, height: 40 }}
             fullWidth
             onClick={() => {
               addToCart(
@@ -107,10 +115,13 @@ const SingleBook = () => {
                 singleBook.imageLinks.smallThumbnail,
                 singleBook.authors[0]
               );
+              notify();
             }}
           >
             ADD TO CART
           </Button>
+          <ToastContainer />
+
           <Typography variant="h4" fontWeight={500} sx={{ mb: 2 }}>
             Buy Online
           </Typography>

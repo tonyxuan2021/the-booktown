@@ -4,6 +4,8 @@ import uniqid from "uniqid";
 import "./Checkout.scss";
 import StripeCheckout from "react-stripe-checkout";
 import { Button } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
   const { items } = useContext(CartContext);
@@ -17,6 +19,12 @@ const Checkout = () => {
   const totalPrice = parseFloat(
     (itemPrice + shippingPrice + taxPrice).toFixed(2)
   );
+
+  const notify = () =>
+    toast.error("Deleted from cart!", {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: 1000,
+    });
 
   const makePayment = (token) => {
     const body = {
@@ -57,10 +65,14 @@ const Checkout = () => {
                   <h3 className="checkout__book__price">{`$ ${item.price}`}</h3>
                   <button
                     className="checkout__book__remove"
-                    onClick={() => removeFromCart(item.name)}
+                    onClick={() => {
+                      notify();
+                      removeFromCart(item.name);
+                    }}
                   >
                     REMOVE
                   </button>
+                  <ToastContainer />
                 </div>
               </div>
             );

@@ -5,6 +5,8 @@ import "./SearchPage.scss";
 import Loader from "../components/Loader/Loader";
 import { Link, useParams } from "react-router-dom";
 import CartContext from "../CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SearchPage = () => {
   const { query } = useParams();
@@ -13,6 +15,12 @@ const SearchPage = () => {
 
   const [bookSearchData, setBookSearchDate] = useState([]);
   const [loader, setLoader] = useState(true);
+
+  const notify = () =>
+    toast.success("Added to cart!", {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: 1000,
+    });
 
   useEffect(() => {
     axios
@@ -61,11 +69,13 @@ const SearchPage = () => {
                   bookObj.volumeInfo.imageLinks.smallThumbnail,
                   bookObj.volumeInfo.authors[0]
                 );
+                notify();
               }}
               className="btn"
             >
               Add to cart
             </button>
+            <ToastContainer />
           </div>
         );
       })}

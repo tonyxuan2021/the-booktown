@@ -5,8 +5,15 @@ import axios from "axios";
 import Loader from "../Loader/Loader";
 import CartContext from "../../CartContext";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CategoryItems = (props) => {
+  const notify = () =>
+    toast.success("Added to cart!", {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: 1000,
+    });
   const { category } = props;
   const [bookDataAdventure, setBookDataAdventure] = useState([]);
 
@@ -56,11 +63,13 @@ const CategoryItems = (props) => {
                   volumeInfo.imageLinks.smallThumbnail,
                   volumeInfo.authors[0] || ""
                 );
+                notify();
               }}
               className="genre__btn"
             >
               Add to cart
             </button>
+            <ToastContainer />
           </div>
         );
       })}
