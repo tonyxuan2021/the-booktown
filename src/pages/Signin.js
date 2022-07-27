@@ -10,7 +10,6 @@ const Signin = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
 
-  console.log(email, password);
   const handleSubmit = () => {
     axios
       .post(`${API_URL_LOGIN}`, {
@@ -34,7 +33,7 @@ const Signin = () => {
       flexDirection="column"
       alignItems="center"
     >
-      <Paper sx={{ height: 350, width: 280 }} elevation={5}>
+      <Paper sx={{ height: 380, width: 400, p:3 }} elevation={5}>
         <Typography variant="h5" textAlign="center" sx={{ mt: 2 }}>
           SIGN IN TO YOUR BOOK TOWN ACCOUNT
         </Typography>

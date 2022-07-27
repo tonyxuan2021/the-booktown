@@ -102,8 +102,8 @@ const Header = () => {
             sx={{
               width: "30%",
               height: "100%",
-              background: "black",
-              "&:hover": { background: "grey" },
+              background: "#1976d2",
+              "&:hover": { background: "#0052cc" },
             }}
           ></Button>
         </Box>

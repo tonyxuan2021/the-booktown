@@ -14,7 +14,8 @@ const googleBookIdUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
 const styles = {
   container: {
     ml: "10rem",
-    mt: "3rem",
+    // mt: "3rem",
+    p:5
   },
 };
 
@@ -54,14 +55,15 @@ const SingleBook = () => {
     <Grid
       container
       display="flex"
-      justifyContent="space-around"
+      justifyContent="space-between"
+      alignItems="center"
       sx={styles.container}
     >
-      <Grid item xs={4}>
-        <img style={{ width: 380 }} src={singleBook.imageLinks.thumbnail}></img>
+      <Grid item xs={3}>
+        <img style={{ width: 300 }} src={singleBook.imageLinks.thumbnail}></img>
       </Grid>
-      <Grid item xs={6}>
-        <Typography variant="h2" fontWeight={500} sx={{ mb: 3 }}>
+      <Grid item xs={7}>
+        <Typography variant="h3" fontWeight={500} sx={{ mb: 3 }}>
           {title}
         </Typography>
         <Typography variant="h4">by {singleBook.authors[0]}</Typography>
@@ -106,7 +108,7 @@ const SingleBook = () => {
         >
           <Button
             variant="contained"
-            sx={{ background: "black", mb: 2, height: 40 }}
+            sx={{ background: "#1976d2", mb: 2, height: 40 }}
             fullWidth
             onClick={() => {
               addToCart(
