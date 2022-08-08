@@ -37,6 +37,5 @@ Install dependencies
 
 Login
 
-![login](https://user-images.githubusercontent.com/93957228/183469385-964f3f07-475d-492e-9070-6e4ff8e5c1f6.gif)
 
 
