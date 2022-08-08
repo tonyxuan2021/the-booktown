@@ -1,6 +1,6 @@
 # The Book Town
 
-This web application allows the users to purchase their favoriate books.
+This e-commerce, full-stack web application allows the users to search and to purchase their favoriate books.
 
 ## Stacks/Technologies
 
