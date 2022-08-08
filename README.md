@@ -31,7 +31,13 @@ Install dependencies
 
 ### Login
 
+![login](https://user-images.githubusercontent.com/93957228/183472529-d2ec0186-815e-4405-b125-dc77bf7a7021.gif)
+
+
 ### Sign up
+
+![signup](https://user-images.githubusercontent.com/93957228/183472598-fe5f3e58-2df1-4362-8734-9472910a77e0.gif)
+
 
 ### Home Screen
 
