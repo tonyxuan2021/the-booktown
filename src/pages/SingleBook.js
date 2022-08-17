@@ -7,17 +7,41 @@ import CartContext from "../CartContext";
 import Loader from "../components/Loader/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { styled } from "@mui/system";
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 const googleBookIdUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
 
-const styles = {
-  container: {
-    ml: "10rem",
-    // mt: "3rem",
-    p:5
+const Wrapper = styled(Grid)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: 20,
+  [theme.breakpoints.up("md")]: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 30,
+    paddingLeft: 90,
+    paddingRight: 90,
   },
-};
+}));
+
+const RightWrapper = styled(Grid)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  [theme.breakpoints.up("md")]: {
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+  },
+}));
+
+const AboutText = styled(Typography)(({ theme }) => ({
+  textAlign: "center",
+  [theme.breakpoints.up("md")]: {
+    textAlign: "left",
+  },
+}));
 
 const SingleBook = () => {
   const { id } = useParams();
@@ -52,18 +76,15 @@ const SingleBook = () => {
     singleBook;
 
   return (
-    <Grid
-      container
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
-      sx={styles.container}
-    >
-      <Grid item xs={3}>
-        <img style={{ width: 300 }} src={singleBook.imageLinks.thumbnail}></img>
+    <Wrapper container spacing={0.5}>
+      <Grid item md={5}>
+        <img
+          style={{ width: "100%" }}
+          src={singleBook.imageLinks.thumbnail}
+        ></img>
       </Grid>
-      <Grid item xs={7}>
-        <Typography variant="h3" fontWeight={500} sx={{ mb: 3 }}>
+      <RightWrapper item md={6}>
+        <Typography variant="h2" fontWeight={700} sx={{ mb: 3 }}>
           {title}
         </Typography>
         <Typography variant="h4">by {singleBook.authors[0]}</Typography>
@@ -100,9 +121,8 @@ const SingleBook = () => {
         <Grid
           item
           sx={{
-            width: "60%",
             background: "rgba(235,235,235,.25)",
-            p: "2rem",
+            p: "6rem",
             mb: 2,
           }}
         >
@@ -151,14 +171,16 @@ const SingleBook = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid sx={{ width: "70%" }}>
+        <Grid item sx={{ p: 3 }}>
           <Typography variant="h3" sx={{ mb: 1 }}>
             About
           </Typography>
-          <Typography variant="h5">{description}</Typography>
+          <Typography lineHeight={1.6} variant="h5">
+            {description}
+          </Typography>
         </Grid>
-      </Grid>
-    </Grid>
+      </RightWrapper>
+    </Wrapper>
   );
 };
 

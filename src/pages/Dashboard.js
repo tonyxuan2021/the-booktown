@@ -32,14 +32,17 @@ const Dashboard = () => {
       <Box
         display="flex"
         flexDirection="column"
-        textAlign="center"
-        gap={2}
+        alignItems="center"
+        // textAlign="center"
+        gap={5}
         sx={{ mt: 10 }}
       >
         <h1>404</h1>
-        <h3>You must be logged in.</h3>
-        <Link to="/" className="btn">
-          back home
+        <h2>You must be logged in.</h2>
+        <Link to="/" className="btn" style={{ margin: 0, width: "200px" }}>
+          <Button fullWidth>
+            <Typography variant="h5">back homes</Typography>
+          </Button>
         </Link>
       </Box>
     );

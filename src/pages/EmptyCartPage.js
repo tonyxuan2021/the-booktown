@@ -1,8 +1,16 @@
 import { Button, Grid, Typography } from "@mui/material";
 import React from "react";
-import { styled } from "@mui/system";
 import { theme } from "../theme";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+
+const BtnWrapper = styled(Grid)(({ theme }) => ({
+  display: "flex",
+
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+  },
+}));
 
 const EmptyCartPage = () => {
   return (
@@ -18,7 +26,7 @@ const EmptyCartPage = () => {
           Your Shopping Cart is Empty
         </Typography>
         <Typography variant="h4">Please add more books to your cart</Typography>
-        <Grid item display="flex" gap={2}>
+        <BtnWrapper item display="flex" gap={2}>
           <Link to="/signin">
             <Button
               sx={{
@@ -60,7 +68,7 @@ const EmptyCartPage = () => {
               </Typography>
             </Button>
           </Link>
-        </Grid>
+        </BtnWrapper>
       </Grid>
     </Grid>
   );
