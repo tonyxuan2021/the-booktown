@@ -20,9 +20,11 @@
     &__box {
         padding-left: 1rem;
         padding-right: 1rem;
+        margin-bottom: 2rem;
 
         @include desktop {
             width: 60%;
+            margin-bottom: 0;
         }
     }
 

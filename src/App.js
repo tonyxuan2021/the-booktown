@@ -13,76 +13,82 @@ import CategoryItems from "./components/Category/CategoryItems";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import EmptyCartPage from "./pages/EmptyCartPage";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./theme";
 
 function App() {
   return (
     <div className="app">
-      <CartProvider>
-        <BrowserRouter>
-          <Header />
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/signin" component={Signin} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/single/:id" component={SingleBook} />
-            <Route path="/search/:query" component={SearchPage} />
-            <Route
-              path="/horror"
-              component={(props) => (
-                <CategoryItems {...props} category="horror" />
-              )}
-            />
-            <Route
-              path="/food"
-              component={(props) => (
-                <CategoryItems {...props} category="food" />
-              )}
-            />
-            <Route
-              path="/adventure"
-              component={(props) => (
-                <CategoryItems {...props} category="advanture" />
-              )}
-            />
-            <Route
-              path="/business"
-              component={(props) => (
-                <CategoryItems {...props} category="business" />
-              )}
-            />
-            <Route
-              path="/child"
-              component={(props) => (
-                <CategoryItems {...props} category="child" />
-              )}
-            />
-            <Route
-              path="/fantasy"
-              component={(props) => (
-                <CategoryItems {...props} category="fantasy" />
-              )}
-            />
-            <Route
-              path="/romance"
-              component={(props) => (
-                <CategoryItems {...props} category="romance" />
-              )}
-            />
-            <Route
-              path="/travel"
-              component={(props) => (
-                <CategoryItems {...props} category="travel" />
-              )}
-            />
-            <Route path="/checkout" component={Checkout} />
-            <Route path="/used" exact component={SellUsedPage} />
-            <Route path="/used/upload" component={Upload} />
-            <Route path="*" component={Error} />
-          </Switch>
-          <Footer />
-        </BrowserRouter>
-      </CartProvider>
+      <ThemeProvider theme={theme}>
+        <CartProvider>
+          <BrowserRouter>
+            <Header />
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/signin" component={Signin} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/empty" component={EmptyCartPage} />
+              <Route path="/single/:id" component={SingleBook} />
+              <Route path="/search/:query" component={SearchPage} />
+              <Route
+                path="/horror"
+                component={(props) => (
+                  <CategoryItems {...props} category="horror" />
+                )}
+              />
+              <Route
+                path="/food"
+                component={(props) => (
+                  <CategoryItems {...props} category="food" />
+                )}
+              />
+              <Route
+                path="/adventure"
+                component={(props) => (
+                  <CategoryItems {...props} category="advanture" />
+                )}
+              />
+              <Route
+                path="/business"
+                component={(props) => (
+                  <CategoryItems {...props} category="business" />
+                )}
+              />
+              <Route
+                path="/child"
+                component={(props) => (
+                  <CategoryItems {...props} category="child" />
+                )}
+              />
+              <Route
+                path="/fantasy"
+                component={(props) => (
+                  <CategoryItems {...props} category="fantasy" />
+                )}
+              />
+              <Route
+                path="/romance"
+                component={(props) => (
+                  <CategoryItems {...props} category="romance" />
+                )}
+              />
+              <Route
+                path="/travel"
+                component={(props) => (
+                  <CategoryItems {...props} category="travel" />
+                )}
+              />
+              <Route path="/checkout" component={Checkout} />
+              <Route path="/used" exact component={SellUsedPage} />
+              <Route path="/used/upload" component={Upload} />
+              <Route path="*" component={Error} />
+            </Switch>
+            <Footer />
+          </BrowserRouter>
+        </CartProvider>
+      </ThemeProvider>
     </div>
   );
 }

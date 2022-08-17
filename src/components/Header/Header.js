@@ -13,6 +13,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Button, TextField, InputProps } from "@mui/material";
 import { Box } from "@mui/system";
 import Error from "../../pages/Error";
+import { styled } from "@mui/system";
+
+const SearchField = styled(TextField)({
+  border: "none",
+});
 
 const Header = () => {
   const { items } = useContext(CartContext);
@@ -41,6 +46,7 @@ const Header = () => {
 
   return (
     <div>
+      <Slider />
       <div className="header__final">
         <div className="header__wrapper">
           <div className="header--top">
@@ -75,18 +81,19 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        <Box sx={{ height: 45, mb: 2 }} display="flex" className="header__box">
-          <TextField
+        <Box sx={{ minHeight: 45 }} display="flex" className="header__box">
+          <SearchField
             placeholder="Search over millions of books"
             variant="outlined"
             value={search}
+            color="primary"
             autoFocus
             onChange={(e) => {
               setSearch(e.target.value);
             }}
-            // InputProps={{ style: { fontSize: 16 } }}
+            InputProps={{ style: { fontSize: 16 } }}
             sx={{ width: "70%" }}
-          ></TextField>
+          ></SearchField>
           <Button
             className="header__search__btn"
             onClick={handleSubmit}
@@ -95,20 +102,20 @@ const Header = () => {
               <SearchIcon
                 sx={{
                   color: "white",
-                  transform: "scale(1.2)",
+                  transform: "scale(1.6)",
                 }}
               />
             }
             sx={{
-              width: "30%",
-              height: "100%",
-              background: "#1976d2",
-              "&:hover": { background: "#0052cc" },
+              background: "#222",
+              boxShadow: "none",
+              "&:hover": { background: "#222", opacity: 0.75 },
+              borderRadius: 0,
             }}
           ></Button>
         </Box>
       </div>
-      <Slider />
+      {/* <Slider /> */}
     </div>
   );
 };

@@ -11,9 +11,9 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "grey",
+    background: "#222",
     color: "white",
-    height: "4rem",
+    height: "6rem",
   },
 };
 

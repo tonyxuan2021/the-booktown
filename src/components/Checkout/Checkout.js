@@ -48,6 +48,10 @@ const Checkout = () => {
       });
   };
 
+  // if(items.length === 0) {
+
+  // }
+
   return (
     <div>
       <h1 className="checkout__title">Your Books Shopping Cart</h1>
