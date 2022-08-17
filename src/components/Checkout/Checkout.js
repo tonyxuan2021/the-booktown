@@ -6,10 +6,12 @@ import StripeCheckout from "react-stripe-checkout";
 import { Button } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router-dom";
 
 const Checkout = () => {
   const { items } = useContext(CartContext);
   const { removeFromCart } = useContext(CartContext);
+  const history = useHistory();
 
   const itemPrice = parseFloat(
     items.reduce((a, c) => a + c.price, 0).toFixed(2)
@@ -48,9 +50,9 @@ const Checkout = () => {
       });
   };
 
-  // if(items.length === 0) {
-
-  // }
+  if (items.length === 0) {
+    history.push("/empty");
+  }
 
   return (
     <div>
