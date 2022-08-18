@@ -70,7 +70,7 @@ const SingleBook = () => {
     );
   }
 
-  console.log(singleBook);
+  // console.log(singleBook);
 
   const { title, description, publishedDate, averageRating, printType } =
     singleBook;

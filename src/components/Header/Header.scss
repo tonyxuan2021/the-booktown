@@ -68,6 +68,18 @@
         gap: 1rem;
 
         @include tablet {
+            margin-bottom: 0;
+
+        }
+
+    }
+
+    &--top--2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include tablet {
             margin: 0;
             width: 30%;
         }
@@ -101,28 +113,21 @@
 
     &--btm {
         position: relative;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__cart {
 
         position: relative;
 
-        &__num {
-            font-size: 1.5rem;
-            background: #ff0000;
-            color: #fff;
-            padding: 0 5px;
-            vertical-align: top;
-            margin-left: -10px;
-            border-radius: 50%;
-            position: absolute;
-            top: -9px;
-            right: -10px;
 
-            @include desktop {
-                right: -5px;
 
-            }
+
+        @include desktop {
+            right: -5px;
+
+            // }
         }
     }
 
@@ -130,15 +135,15 @@
         display: flex;
         margin-bottom: 2rem;
         font-size: 1.6rem;
-        gap: 2rem;
+        // gap: 2rem;
         justify-content: space-between;
-        // width: 100%;
 
 
         @include tablet {
             flex-direction: column;
             gap: 1rem;
             margin-bottom: 0;
+            align-items: flex-end;
         }
     }
 

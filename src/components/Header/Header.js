@@ -2,18 +2,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import "./Header.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory } from "react-router-dom";
 import CartContext from "../../CartContext";
 import axios from "axios";
 import Slider from "../Slider/Slider";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, TextField, InputProps } from "@mui/material";
+import { Button, TextField, InputProps, Badge, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import Error from "../../pages/Error";
 import { styled } from "@mui/system";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
+import HomeIcon from "@mui/icons-material/Home";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 
 const SearchField = styled(TextField)({
   border: "none",
@@ -54,31 +55,35 @@ const Header = () => {
               <img src={logo} className="header__img"></img>
             </Link>
             <div className="header--right__wrapper">
-              <div className="header--top">
+              <div className="header--top--2">
                 <Link to="/signin" className="header__link">
                   <p>Login</p>
                 </Link>
-                <FontAwesomeIcon icon={faUser} />
+                <PersonIcon fontSize="large" />
               </div>
               <div className="header--btm">
                 <Link to="/checkout" className="header--right">
                   <p>Cart</p>
-                  <FontAwesomeIcon
-                    icon={faCartShopping}
-                    className="header__cart"
-                  />
-                  <span className="header__cart__num">{items.length}</span>
+                  <Badge badgeContent={items.length} color="error">
+                    <ShoppingCartIcon fontSize="large" />
+                  </Badge>
                 </Link>
               </div>
             </div>
           </div>
           <div className="header__bar">
-            <Link to="/" className="header__home">
-              <p>Home</p>
-            </Link>
-            <Link to="/dashboard" className="header__used">
-              <p>Dashboard</p>
-            </Link>
+            <Grid item display="flex" gap={1}>
+              <Link to="/" className="header__home">
+                <p>Home</p>
+              </Link>
+              <HomeIcon fontSize="large" />
+            </Grid>
+            <Grid item display="flex" gap={1}>
+              <Link to="/dashboard" className="header__used">
+                <p>Dashboard</p>
+              </Link>
+              <DashboardIcon fontSize="large" />
+            </Grid>
           </div>
         </div>
         <Box sx={{ minHeight: 45 }} display="flex" className="header__box">

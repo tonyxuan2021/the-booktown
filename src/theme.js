@@ -5,12 +5,12 @@ export const theme = createTheme({
     primary: {
       main: "#222",
     },
-    // secondary: {
-    //   main: "rgb(51,50,61)",
-    // },
-    // darkblue: {
-    //   main: "rgb(32,58,76)",
-    // },
+    secondary: {
+      main: "#D3450D",
+    },
+    white: {
+      main: "#fff",
+    },
     // grey: {
     //   main: "rgb(234,234,235)",
     // },

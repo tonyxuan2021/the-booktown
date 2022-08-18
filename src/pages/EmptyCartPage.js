@@ -63,7 +63,7 @@ const EmptyCartPage = () => {
               variant="outlined"
               fullWidth
             >
-              <Typography variant="h4" color="white">
+              <Typography variant="h4" color={theme.palette.white.main}>
                 Continue Shopping
               </Typography>
             </Button>
