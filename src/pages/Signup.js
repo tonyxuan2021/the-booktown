@@ -13,11 +13,34 @@ import { API_URL_REGISTER } from "../config/index";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
+  const [errorNoValidEmail, setErrorNoValidEmail] = useState(false);
   const [password, setPassword] = useState("");
+  const [errorNoPassword, setErrorNoPassword] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
 
+  // signin and signup validation
+  const isValidEmail = (emailAddress) => {
+    return /\S+@\S+\.\S+/.test(emailAddress);
+  };
+
+  // const handleValidEmail = () => {
+  //   if (isValidEmail(email)) {
+  //     setErrorNoValidEmail(false);
+  //     return;
+  //   }
+  // };
+
   const handleSubmit = () => {
+    if (!email || !isValidEmail(email)) {
+      setErrorNoValidEmail(true);
+      return;
+    }
+
+    if (!password) {
+      setErrorNoPassword(true);
+      return;
+    }
     axios
       .post(`${API_URL_REGISTER}`, {
         email: email,
@@ -47,8 +70,9 @@ const Signup = () => {
         </Typography>
         <Divider></Divider>
         <Box sx={{ p: 1 }} display="flex" flexDirection="column" gap={1}>
-          <Typography variant="h6">email address</Typography>
+          <Typography variant="h5">email address</Typography>
           <TextField
+            type="email"
             inputProps={{
               style: {
                 padding: 8,
@@ -61,8 +85,12 @@ const Signup = () => {
             autoFocus
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={errorNoValidEmail}
+            helperText={
+              errorNoValidEmail ? "Please enter a valid email address" : ""
+            }
           ></TextField>
-          <Typography variant="h6">password</Typography>
+          <Typography variant="h5">password</Typography>
           <TextField
             inputProps={{
               style: {
@@ -75,8 +103,11 @@ const Signup = () => {
             autoFocus
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            error={errorNoPassword}
+            helperText={errorNoPassword ? "Please enter your password" : ""}
           ></TextField>
-          <Typography>Forgot your password?</Typography>
+          <Typography variant="h6">Forgot your password?</Typography>
           <Box display="flex" justifyContent="flex-end">
             <Button
               variant="contained"
@@ -101,7 +132,10 @@ const Signup = () => {
             </Typography>
           </Box>
           <Typography textAlign="center" variant="h5">
-            <Link style={{color:"black"}} to="/signin">Already have an account? Sign In</Link>
+            <Link style={{ color: "black" }} to="/signin">
+              Already have an account?{" "}
+              <span style={{ textDecoration: "underline" }}>Sign In</span>
+            </Link>
           </Typography>
         </Box>
       </Box>
