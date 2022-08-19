@@ -63,15 +63,15 @@ function App() {
                 )}
               />
               <Route
-                path="/fantasy"
+                path="/fiction"
                 component={(props) => (
-                  <CategoryItems {...props} category="fantasy" />
+                  <CategoryItems {...props} category="fiction" />
                 )}
               />
               <Route
-                path="/romance"
+                path="/race"
                 component={(props) => (
-                  <CategoryItems {...props} category="romance" />
+                  <CategoryItems {...props} category="race" />
                 )}
               />
               <Route
@@ -83,7 +83,7 @@ function App() {
               <Route path="/checkout" component={Checkout} />
               <Route path="/used" exact component={SellUsedPage} />
               <Route path="/used/upload" component={Upload} />
-              <Route path="*" component={Error} />
+              <Route path="/error" component={Error} />
             </Switch>
             <Footer />
           </BrowserRouter>

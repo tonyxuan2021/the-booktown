@@ -35,15 +35,12 @@ const Header = () => {
       .then((data) => {
         setBooksData(data);
         history.push(`/search/${search}`);
+        setSearch("");
       })
       .catch(() => {
         setError(true);
       });
   };
-
-  if (!booksData) {
-    return <Error />;
-  }
 
   return (
     <div>
@@ -72,18 +69,18 @@ const Header = () => {
             </div>
           </div>
           <div className="header__bar">
-            <Grid item display="flex" gap={1}>
-              <Link to="/" className="header__home">
+            <Link to="/" className="header__home">
+              <Grid item display="flex" gap={1}>
                 <p>Home</p>
-              </Link>
-              <HomeIcon fontSize="large" />
-            </Grid>
-            <Grid item display="flex" gap={1}>
-              <Link to="/dashboard" className="header__used">
+                <HomeIcon fontSize="large" />
+              </Grid>
+            </Link>
+            <Link to="/dashboard" className="header__used">
+              <Grid item display="flex" gap={1}>
                 <p>Dashboard</p>
-              </Link>
-              <DashboardIcon fontSize="large" />
-            </Grid>
+                <DashboardIcon fontSize="large" />
+              </Grid>
+            </Link>
           </div>
         </div>
         <Box sx={{ minHeight: 45 }} display="flex" className="header__box">

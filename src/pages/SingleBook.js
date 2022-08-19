@@ -8,6 +8,7 @@ import Loader from "../components/Loader/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { styled } from "@mui/system";
+import { theme } from "../theme";
 
 const API_KEY_NYT = process.env.REACT_APP_API_KEY_NYT;
 const googleBookIdUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
@@ -128,7 +129,13 @@ const SingleBook = () => {
         >
           <Button
             variant="contained"
-            sx={{ background: "#1976d2", mb: 2, height: 40 }}
+            sx={{
+              background: theme.palette.primary.main,
+              mb: 2,
+              height: 40,
+              textTransform: "capitalize",
+              "&:hover": { opacity: 0.75 },
+            }}
             fullWidth
             onClick={() => {
               addToCart(
@@ -140,7 +147,7 @@ const SingleBook = () => {
               notify();
             }}
           >
-            ADD TO CART
+            <Typography variant="h5">add to cart</Typography>
           </Button>
           <ToastContainer />
 

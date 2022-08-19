@@ -3,7 +3,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 import "./SearchPage.scss";
 import Loader from "../components/Loader/Loader";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import CartContext from "../CartContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,6 +15,8 @@ const SearchPage = () => {
 
   const [bookSearchData, setBookSearchDate] = useState([]);
   const [loader, setLoader] = useState(true);
+
+  let history = useHistory();
 
   const notify = () =>
     toast.success("Added to cart!", {
@@ -31,12 +33,8 @@ const SearchPage = () => {
       });
   }, [query]);
 
-  if (bookSearchData.length === 0) {
-    return (
-      <section>
-        <Loader>Loading...</Loader>
-      </section>
-    );
+  if (!bookSearchData) {
+    history.push("/error");
   }
 
   return (

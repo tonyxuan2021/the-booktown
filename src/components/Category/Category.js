@@ -38,8 +38,8 @@ class Category extends Component {
             />
           </div>
           <div className="category__list__wrapper">
-            <Link to="/fantasy" className="category__link">
-              <li>Fantasy</li>
+            <Link to="/fiction" className="category__link">
+              <li>Fiction</li>
             </Link>
             <FontAwesomeIcon
               icon={faArrowRight}
@@ -65,8 +65,8 @@ class Category extends Component {
             />
           </div>
           <div className="category__list__wrapper">
-            <Link to="/romance" className="category__link">
-              <li>Romance</li>
+            <Link to="/race" className="category__link">
+              <li>Race</li>
             </Link>{" "}
             <FontAwesomeIcon
               icon={faArrowRight}

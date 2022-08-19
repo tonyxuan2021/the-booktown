@@ -201,6 +201,11 @@ const Checkout = () => {
                 color: theme.palette.white.main,
                 background: theme.palette.primary.main,
                 textTransform: "capitalize",
+                ":hover": {
+                  opacity: 0.8,
+                  bgcolor: theme.palette.primary.main,
+                  // color: "white",
+                },
               }}
             >
               <ProceedText variant="h4">Proceed to Checkout</ProceedText>
