@@ -136,10 +136,10 @@ const Checkout = () => {
                     <p className="checkout__book__author">{`by ${item.author}`}</p>
                   </div>
                   <Grid item display="flex" alignItems="center" gap={1}>
-                    <SelectQuantity
+                    {/* <SelectQuantity
                       selectQty={selectQty}
                       setSelectQty={setSelectQty}
-                    />
+                    /> */}
                     <h3 className="checkout__book__price">{`$ ${item.price}`}</h3>
                   </Grid>
                   <Button
