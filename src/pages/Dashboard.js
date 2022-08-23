@@ -49,16 +49,21 @@ const Dashboard = () => {
   }
 
   return (
-    <Grid container sx={{ p: 2 }}>
+    <Grid item sx={{ p: 2 }}>
       <Grid
-        container
+        // container
         item
         display="flex"
         justifyContent="space-between"
-        sx={[styles.border, { pb: 1, mb: 4 }]}
+        sx={[styles.border, { pb: 3, mb: 4 }]}
       >
-        <Typography variant="h5">hello, dear user</Typography>
-        <Typography variant="h5">continue shopping</Typography>
+        <Typography variant="h4">Hello, dear User1!</Typography>
+        <Link
+          to="/"
+          style={{ margin: 0, textDecoration: "none", color: "black" }}
+        >
+          <Typography variant="h4">continue shopping</Typography>
+        </Link>
       </Grid>
       <Grid container item display="flex" justifyContent="space-between">
         <Grid item sx={styles.flexColumn} xs={3}>

@@ -16,17 +16,24 @@ import Dashboard from "./pages/Dashboard";
 import EmptyCartPage from "./pages/EmptyCartPage";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./theme";
+import { useState } from "react";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
     <div className="app">
       <ThemeProvider theme={theme}>
         <CartProvider>
           <BrowserRouter>
-            <Header />
+            <Header setIsAuth={setIsAuth} isAuth={isAuth} />
             <Switch>
               <Route path="/" exact component={HomePage} />
-              <Route path="/signin" component={Signin} />
+              {/* <Route path="/signin" component={Signin}  /> */}
+              <Route
+                path="/signin"
+                render={() => <Signin setIsAuth={setIsAuth} isAuth={isAuth} />}
+              />
               <Route path="/signup" component={Signup} />
               <Route path="/dashboard" component={Dashboard} />
               <Route path="/empty" component={EmptyCartPage} />

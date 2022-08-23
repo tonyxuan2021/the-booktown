@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { API_URL_LOGIN } from "../config/index";
 
-const Signin = () => {
+const Signin = ({ setIsAuth }) => {
+  // console.log(setIsAuth);
   const [email, setEmail] = useState("tonydemotest@gmail.com");
   const [password, setPassword] = useState("demotest");
   const [success, setSuccess] = useState(false);
@@ -20,6 +21,7 @@ const Signin = () => {
         console.log(res);
         sessionStorage.setItem("token", res.data.token);
         setSuccess(true);
+        setIsAuth(true);
       })
       .catch((err) => {
         setError(err.response.data);

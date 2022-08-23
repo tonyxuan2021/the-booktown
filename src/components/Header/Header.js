@@ -7,7 +7,14 @@ import CartContext from "../../CartContext";
 import axios from "axios";
 import Slider from "../Slider/Slider";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, TextField, InputProps, Badge, Grid } from "@mui/material";
+import {
+  Button,
+  TextField,
+  InputProps,
+  Badge,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import Error from "../../pages/Error";
 import { styled } from "@mui/system";
@@ -20,7 +27,9 @@ const SearchField = styled(TextField)({
   border: "none",
 });
 
-const Header = () => {
+const Header = ({ setIsAuth, isAuth }) => {
+  // console.log(setIsAuth);
+  console.log(isAuth);
   const { items } = useContext(CartContext);
   const [booksData, setBooksData] = useState([]);
   const [search, setSearch] = useState("");
@@ -42,6 +51,12 @@ const Header = () => {
       });
   };
 
+  const handleLogOut = () => {
+    sessionStorage.clear();
+    window.location.pathname = "/signin";
+    setIsAuth(false);
+  };
+
   return (
     <div>
       <Slider />
@@ -53,9 +68,24 @@ const Header = () => {
             </Link>
             <div className="header--right__wrapper">
               <div className="header--top--2">
-                <Link to="/signin" className="header__link">
-                  <p>Login</p>
-                </Link>
+                {!isAuth ? (
+                  <Link to="/signin" className="header__link">
+                    <p>Login</p>
+                  </Link>
+                ) : (
+                  <button
+                    style={{
+                      background: "none",
+                      border: "none",
+                      padding: 0,
+                      fontSize: "1.6rem",
+                      cursor: "pointer",
+                    }}
+                    onClick={handleLogOut}
+                  >
+                    <p>Logout</p>
+                  </button>
+                )}
                 <PersonIcon fontSize="large" />
               </div>
               <div className="header--btm">
@@ -81,6 +111,7 @@ const Header = () => {
                 <DashboardIcon fontSize="large" />
               </Grid>
             </Link>
+            {/* <Button onClick={handleLogOut}>Logout</Button> */}
           </div>
         </div>
         <Box sx={{ minHeight: 45 }} display="flex" className="header__box">
