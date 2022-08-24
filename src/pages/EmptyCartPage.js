@@ -12,9 +12,15 @@ const BtnWrapper = styled(Grid)(({ theme }) => ({
   },
 }));
 
+const Wrapper = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    padding: 50,
+  },
+}));
+
 const EmptyCartPage = () => {
   return (
-    <Grid container display="flex" justifyContent="center" sx={{ mt: 5 }}>
+    <Wrapper container display="flex" justifyContent="center" sx={{ mt: 5 }}>
       <Grid
         item
         display="flex"
@@ -70,7 +76,7 @@ const EmptyCartPage = () => {
           </Link>
         </BtnWrapper>
       </Grid>
-    </Grid>
+    </Wrapper>
   );
 };
 

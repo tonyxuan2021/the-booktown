@@ -10,6 +10,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { API_URL_REGISTER } from "../config/index";
+import { styled } from "@mui/system";
+
+const Wrapper = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.up("lg")]: {
+    height: 330,
+    width: 550,
+  },
+}));
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -23,13 +31,6 @@ const Signup = () => {
   const isValidEmail = (emailAddress) => {
     return /\S+@\S+\.\S+/.test(emailAddress);
   };
-
-  // const handleValidEmail = () => {
-  //   if (isValidEmail(email)) {
-  //     setErrorNoValidEmail(false);
-  //     return;
-  //   }
-  // };
 
   const handleSubmit = () => {
     if (!email || !isValidEmail(email)) {
@@ -64,12 +65,12 @@ const Signup = () => {
       flexDirection="column"
       alignItems="center"
     >
-      <Box sx={{ height: 330, width: 550 }} elevation={5}>
+      <Wrapper elevation={5}>
         <Typography variant="h5" textAlign="center" sx={{ mt: 2, mb: 3 }}>
           SET YOUR EMAIL AND PASSWORD
         </Typography>
         <Divider></Divider>
-        <Box sx={{ p: 1 }} display="flex" flexDirection="column" gap={1}>
+        <Box sx={{ p: 3 }} display="flex" flexDirection="column" gap={1}>
           <Typography variant="h5">email address</Typography>
           <TextField
             type="email"
@@ -119,7 +120,7 @@ const Signup = () => {
             </Button>
           </Box>
         </Box>
-        <Box>
+        <Box sx={{ p: 3 }}>
           <Typography sx={{ mb: 2 }} variant="h5">
             EMAIL PREFERENCES
           </Typography>
@@ -138,7 +139,7 @@ const Signup = () => {
             </Link>
           </Typography>
         </Box>
-      </Box>
+      </Wrapper>
       {success && <div className="signup__notice">Signed up!</div>}
       {error && <div className="signup__notice">{error}</div>}
     </Box>

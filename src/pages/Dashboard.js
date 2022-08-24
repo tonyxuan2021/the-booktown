@@ -2,6 +2,21 @@ import { Button, Grid, Typography, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { styled } from "@mui/system";
+
+const Wrapper = styled(Grid)(({ theme }) => ({
+  display: "flex",
+  gap: 20,
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+  },
+}));
+
+const LeftBar = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.down("lg")]: {
+    display: "none",
+  },
+}));
 
 const styles = {
   border: {
@@ -10,6 +25,9 @@ const styles = {
   flexColumn: {
     display: "flex",
     flexDirection: "column",
+  },
+  flexRow: {
+    display: "flex",
   },
   borderall: {
     border: "1px solid lightgrey",
@@ -66,7 +84,7 @@ const Dashboard = () => {
         </Link>
       </Grid>
       <Grid container item display="flex" justifyContent="space-between">
-        <Grid item sx={styles.flexColumn} xs={3}>
+        <LeftBar item sx={styles.flexColumn} lg={3}>
           {list.map((item) => {
             return (
               <Typography
@@ -78,9 +96,15 @@ const Dashboard = () => {
               </Typography>
             );
           })}
-        </Grid>
-        <Grid item xs={8.6} display="flex" justifyContent="space-between">
-          <Grid item sx={[styles.flexColumn, { gap: 2 }]} xs={3.8}>
+        </LeftBar>
+        <Grid
+          container
+          item
+          lg={8.6}
+          display="flex"
+          justifyContent="space-between"
+        >
+          <Grid item sx={[styles.flexColumn, { gap: 2 }]} lg={3.8}>
             <Grid
               item
               sx={[styles.flexColumn, styles.borderall, { gap: 2, p: 2 }]}
@@ -137,85 +161,87 @@ const Dashboard = () => {
               </Button>
             </Grid>
           </Grid>
-          <Grid item sx={[styles.flexColumn, { gap: 2 }]} xs={3.8}>
-            <Grid
-              item
-              sx={[styles.flexColumn, styles.borderall, { gap: 2, p: 2 }]}
-            >
-              <Typography variant="h4">MY REWARDS</Typography>
-              <Typography variant="h5" fontWeight={700}>
-                Booktown Reward Number:123456
-              </Typography>
-              <Typography variant="h5" fontWeight={700}>
-                Current Balance: 0 point
-              </Typography>
-              <Button
-                variant="contained"
-                sx={{ height: 40, background: "black" }}
+          <Wrapper item lg={8}>
+            <Grid item sx={[styles.flexRow, { gap: 2 }]} lg={8}>
+              <Grid
+                item
+                sx={[styles.flexColumn, styles.borderall, { gap: 2, p: 2 }]}
               >
-                See More
-              </Button>
-            </Grid>
-            <Grid
-              item
-              sx={[styles.flexColumn, styles.borderall, { gap: 2, p: 2 }]}
-            >
-              <Typography variant="h4">MY OFFERS</Typography>
-              <Typography variant="h5" fontWeight={700}>
-                Get 1 booktown point every time you rate a recommendation
-              </Typography>
-              <Button
-                variant="contained"
-                sx={{ height: 40, background: "black" }}
+                <Typography variant="h4">MY REWARDS</Typography>
+                <Typography variant="h5" fontWeight={700}>
+                  Booktown Reward Number:123456
+                </Typography>
+                <Typography variant="h5" fontWeight={700}>
+                  Current Balance: 0 point
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{ height: 40, background: "black" }}
+                >
+                  See More
+                </Button>
+              </Grid>
+              <Grid
+                item
+                sx={[styles.flexColumn, styles.borderall, { gap: 2, p: 2 }]}
               >
-                See Details
-              </Button>
-            </Grid>
-          </Grid>
-          <Grid item sx={[styles.flexColumn]} xs={3.8}>
-            <Grid
-              item
-              sx={[styles.flexColumn, styles.borderall, { gap: 2, p: 2 }]}
-            >
-              <Typography variant="h4">ACCOUNT DETAILS</Typography>
-              <Grid item display="flex" gap={2}>
+                <Typography variant="h4">MY OFFERS</Typography>
                 <Typography variant="h5" fontWeight={700}>
-                  NAME
+                  Get 1 booktown point every time you rate a recommendation
                 </Typography>
-                <Typography variant="h5">User1</Typography>
-              </Grid>
-              <Grid item display="flex" gap={2}>
-                <Typography variant="h5" fontWeight={700}>
-                  EMAIL
-                </Typography>
-                <Typography variant="h5">user1@gmail.com</Typography>
-              </Grid>
-              <Grid item display="flex" gap={2}>
-                <Typography variant="h5" fontWeight={700}>
-                  PASSWORD
-                </Typography>
-                <Typography variant="h5">******</Typography>
-              </Grid>
-              <Grid item display="flex" gap={2}>
-                <Typography variant="h5" fontWeight={700}>
-                  PHONE
-                </Typography>
-                <Typography variant="h5">778***1234</Typography>
-              </Grid>
-              <Grid item display="flex" gap={2}>
-                <Typography variant="h5" fontWeight={700}>
-                  LANGUAGE
-                </Typography>
-                <Typography variant="h5">English</Typography>
-              </Grid>
-              <Grid item display="flex" gap={2}>
-                <Typography variant="h5" fontWeight={700}>
-                  ADDRESS
-                </Typography>
-                <Typography variant="h5">123 Test Street</Typography>
+                <Button
+                  variant="contained"
+                  sx={{ height: 40, background: "black" }}
+                >
+                  See Details
+                </Button>
               </Grid>
             </Grid>
-          </Grid>
+            <Grid item sx={[styles.flexColumn]} lg={4}>
+              <Grid
+                item
+                sx={[styles.flexColumn, styles.borderall, { gap: 2, p: 2 }]}
+              >
+                <Typography variant="h4">ACCOUNT DETAILS</Typography>
+                <Grid item display="flex" gap={2}>
+                  <Typography variant="h5" fontWeight={700}>
+                    NAME
+                  </Typography>
+                  <Typography variant="h5">User1</Typography>
+                </Grid>
+                <Grid item display="flex" gap={2}>
+                  <Typography variant="h5" fontWeight={700}>
+                    EMAIL
+                  </Typography>
+                  <Typography variant="h5">user1@gmail.com</Typography>
+                </Grid>
+                <Grid item display="flex" gap={2}>
+                  <Typography variant="h5" fontWeight={700}>
+                    PASSWORD
+                  </Typography>
+                  <Typography variant="h5">******</Typography>
+                </Grid>
+                <Grid item display="flex" gap={2}>
+                  <Typography variant="h5" fontWeight={700}>
+                    PHONE
+                  </Typography>
+                  <Typography variant="h5">778***1234</Typography>
+                </Grid>
+                <Grid item display="flex" gap={2}>
+                  <Typography variant="h5" fontWeight={700}>
+                    LANGUAGE
+                  </Typography>
+                  <Typography variant="h5">English</Typography>
+                </Grid>
+                <Grid item display="flex" gap={2}>
+                  <Typography variant="h5" fontWeight={700}>
+                    ADDRESS
+                  </Typography>
+                  <Typography variant="h5">123 Test Street</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Wrapper>
         </Grid>
       </Grid>
     </Grid>

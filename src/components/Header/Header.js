@@ -83,7 +83,9 @@ const Header = ({ setIsAuth, isAuth }) => {
                     }}
                     onClick={handleLogOut}
                   >
-                    <p>Logout</p>
+                    <Typography sx={{ color: "black", fontSize: "1.6rem" }}>
+                      Logout
+                    </Typography>
                   </button>
                 )}
                 <PersonIcon fontSize="large" />
